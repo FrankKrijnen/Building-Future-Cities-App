@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+.table-gray > tr {
+    background-color: gray;
+    color: white;
+}
+label {
+    width: 100%;
+}
+.line {
+    position: absolute;
+    top: -25px;
+}

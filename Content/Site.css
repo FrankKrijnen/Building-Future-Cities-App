@@ -26,6 +26,10 @@ textarea {
     background-color: gray;
     color: white;
 }
+.table-white > tr {
+    background-color: white;
+    color: black;
+}
 label {
     width: 100%;
 }
@@ -33,3 +37,26 @@ label {
     position: absolute;
     top: -25px;
 }
+.table-cell-red {
+    background-color: #942500;
+    color: white;
+}
+.table-cell-orange {
+    background-color: #945b00;
+    color: white;
+}
+.table-cell-yellow {
+    background-color: #949400;
+    color: white;
+}
+.table-cell-green {
+    background-color: #1f7500;
+    color: white;
+}
+.table-cell-selected {
+    opacity: 0.6;
+}
+.house-icon {
+    width: 25px;
+}
+

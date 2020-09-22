@@ -22,3 +22,41 @@ select,
 textarea {
     max-width: 280px;
 }
+.table-gray > tr {
+    background-color: gray;
+    color: white;
+}
+.table-white > tr {
+    background-color: white;
+    color: black;
+}
+label {
+    width: 100%;
+}
+.line {
+    position: absolute;
+    top: -25px;
+}
+.table-cell-red {
+    background-color: #db4848;
+    color: black;
+}
+.table-cell-orange {
+    background-color: #fec771;
+    color: black;
+}
+.table-cell-yellow {
+    background-color: #e6e56c;
+    color: black;
+}
+.table-cell-green {
+    background-color: #64e291;
+    color: black;
+}
+.table-cell-selected {
+    filter: brightness(75%);
+}
+.house-icon {
+    width: 25px;
+}
+

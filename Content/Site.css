@@ -38,23 +38,23 @@ label {
     top: -25px;
 }
 .table-cell-red {
-    background-color: #942500;
-    color: white;
+    background-color: #db4848;
+    color: black;
 }
 .table-cell-orange {
-    background-color: #945b00;
-    color: white;
+    background-color: #fec771;
+    color: black;
 }
 .table-cell-yellow {
-    background-color: #949400;
-    color: white;
+    background-color: #e6e56c;
+    color: black;
 }
 .table-cell-green {
-    background-color: #1f7500;
-    color: white;
+    background-color: #64e291;
+    color: black;
 }
 .table-cell-selected {
-    opacity: 0.6;
+    filter: brightness(75%);
 }
 .house-icon {
     width: 25px;

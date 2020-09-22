@@ -9,12 +9,32 @@
     padding-right: 15px;
 }
 
+.addmaterial {
+    position: relative;
+    color: black;
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #425fff;
+    color: white;
+    font-size: medium;
+    padding: 6px 18px 6px 18px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+    .addmaterial:hover {
+        text-decoration: none;
+        background-color: #0022e0;
+        color: white;
+    }
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
-    white-space: normal;
-}
+    .dl-horizontal dt {
+        white-space: normal;
+    }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -58,5 +78,9 @@ label {
 }
 .house-icon {
     width: 25px;
+}
+
+.addmaterialAlignment{
+    margin-top: 3px;
 }
 

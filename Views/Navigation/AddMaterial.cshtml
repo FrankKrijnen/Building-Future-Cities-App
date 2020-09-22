@@ -1,0 +1,62 @@
+﻿
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+    <div class="row addmaterialAlignment">
+        <label class="col-sm-3">Selecteer een woonruimte:</label>
+
+        <select class="col-sm" name="LiveArea" id="LiveArea">
+            <option value="Woonkamer">Woonkamer</option>
+            <option value="Keuken">Keuken</option>
+            <option value="Badkamer">badkamer</option>
+            <option value="Slaapkamer">Slaapkamer</option>
+        </select>
+    </div>
+
+    <div class="row addmaterialAlignment">
+        <label class="col-sm-3">Selecteer de circulariteit:</label>
+
+        <select class="col-sm" name="Linear" id="Linear">
+            <option value="Linear">Linear</option>
+            <option value="Low-Circulair">Low-Circulair</option>
+            <option value="Medium-Circulair">Medium-Circulair</option>
+            <option value="Circulair">Circulair</option>
+        </select>
+    </div>
+
+    <div class="row addmaterialAlignment">
+        <label class="col-sm-3">Product naam:</label>
+        <input class="col-sm" id="ProductName" />
+    </div>
+
+    <div class="row addmaterialAlignment">
+        <label class="col-sm-3">MCI:</label>
+        <input class="col-sm" id="mci" />
+    </div>
+
+    <div class="row addmaterialAlignment">
+        <label class="col-sm-3">PCI:</label>
+        <input class="col-sm" id="pci" />
+    </div>
+</div>
+
+<button onclick="SaveMaterial()">Save!</button>
+
+<script>
+    function SaveMaterial() {
+        //TEST
+        var selectedItem = document.getElementById("LiveArea");
+        var optionText1 = selectedItem.options[selectedItem.selectedIndex].text;
+
+        var selectedItem = document.getElementById("Linear");
+        var optionText2 = selectedItem.options[selectedItem.selectedIndex].text;
+
+        var productNameText = document.getElementById("ProductName").value;
+        var mciText = document.getElementById("mci").value;
+        var pciText = document.getElementById("pci").value;
+
+        alert(productNameText + " " + mciText + " " + pciText + " " + optionText1 + " " + optionText2);
+    }
+</script>
+

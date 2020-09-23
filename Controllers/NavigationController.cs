@@ -39,5 +39,19 @@ namespace BuildingFutureCitiesApp.Controllers
             ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
             return View();
         }
+
+        public ActionResult Profile()
+        {
+            ViewBag.Message = "Profiel";
+            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
+            return View();
+        }
+
+        public ActionResult Configuration()
+        {
+            ViewBag.Message = "Configuratie";
+            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
+            return View();
+        }
     }
 }

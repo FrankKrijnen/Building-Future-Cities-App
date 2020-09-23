@@ -173,6 +173,8 @@
     <Content Include="Views\Navigation\Kitchen.cshtml" />
     <Content Include="Views\Navigation\Bathroom.cshtml" />
     <Content Include="Views\Navigation\Bedroom.cshtml" />
+    <Content Include="Views\Navigation\Profile.cshtml" />
+    <Content Include="Views\Navigation\Configuration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

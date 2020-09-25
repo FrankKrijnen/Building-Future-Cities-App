@@ -43,7 +43,7 @@ namespace BuildingFutureCitiesApp.Controllers
         public ActionResult AddMaterial()
         {
             ViewBag.Message = "Hier kunt u een materiaal toevoegen aan de database.";
-            ViewBag.Title = "Voeg materiaal toe"; 
+            ViewBag.Title = "Voeg materiaal toe";           
             return View();
         }
     }

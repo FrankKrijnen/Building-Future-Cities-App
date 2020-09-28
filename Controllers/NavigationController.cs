@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildingFutureCitiesApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace BuildingFutureCitiesApp.Controllers
 {
     public class NavigationController : Controller
     {
+        List<ConfigurationClass> ConfigurationList;
+
         public ActionResult Index()
         {
             return View();
@@ -49,9 +52,18 @@ namespace BuildingFutureCitiesApp.Controllers
 
         public ActionResult Configuration()
         {
-            ViewBag.Message = "Configuratie";
-            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
+            ViewBag.Title = "Configuratie overzicht";
+
+            ConfigurationList = new List<ConfigurationClass>();
+            ConfigurationList.Add(new ConfigurationClass("Woonkamer", 0.86, 634, 0.94, 239));
+
+            ViewBag.RoomName = ConfigurationList[0].RoomName;
+            ViewBag.CurrentConceptSCI = ConfigurationList[0].CurrentConceptSCI;
+            ViewBag.CurrentConceptCO2 = ConfigurationList[0].CurrentConceptCO2;
+            ViewBag.NewConceptSCI = ConfigurationList[0].NewConceptSCI;
+            ViewBag.NewConceptCO2 = ConfigurationList[0].NewConceptCO2;
             return View();
         }
+      
     }
 }

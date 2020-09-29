@@ -9,16 +9,66 @@ namespace BuildingFutureCitiesAPI.Models
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
+        public string EstateObjectName { get; private set; }
+        public string EstateArea { get; private set; }
+        public string Function { get; private set; }
+        public int Units { get; private set; }
+        public string OriginName{ get; private set; }
+        public string Distance { get; private set; }
+        public string EmbodiedEnergy { get; private set; }
+        public string EmbodiedCo2 { get; private set; }
+        public string Lifespan{ get; private set; }
+        public string Removability { get; private set; }
+        public string Image { get; private set; }
 
         public Material()
         {
             Id = 0;
             Name = "";
+            EstateObjectName = "";
+            EstateArea = ""; 
+            Function = "";
+            Units = 0; 
+            OriginName = "";
+            Distance = ""; 
+            EmbodiedEnergy = "";
+            EmbodiedCo2 = "";
+            Lifespan = ""; 
+            Removability = ""; 
+            Image = "";
         }
         public Material(int id, string name)
         {
-            this.Id = id;
-            this.Name = name;
+            Id = id;
+            Name = name;
+            EstateObjectName = "";
+            EstateArea = "";
+            Function = "";
+            Units = 0;
+            OriginName = "";
+            Distance = "";
+            EmbodiedEnergy = "";
+            EmbodiedCo2 = "";
+            Lifespan = "";
+            Removability = "";
+            Image = "";
+        }
+        public Material(int id, string name, string estateObjectName, string estateArea, string function,
+            int units, string originName, string distance, string embodiedEnergy, string embodiedCo2, string lifespan, string removability, string image)
+        {
+            Id = id;
+            Name = name;
+            EstateObjectName = estateObjectName;
+            EstateArea = estateArea;
+            Function = function;
+            Units = units;
+            OriginName = originName;
+            Distance = distance;
+            EmbodiedEnergy = embodiedEnergy;
+            EmbodiedCo2 = embodiedCo2;
+            Lifespan = lifespan;
+            Removability = removability;
+            Image = image;
         }
         public int GetMaterialId()
         {

@@ -176,6 +176,7 @@
     <Content Include="Views\Navigation\AddMaterial.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="API\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

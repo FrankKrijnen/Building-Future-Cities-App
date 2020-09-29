@@ -175,6 +175,7 @@
     <Content Include="Views\Navigation\Bedroom.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="API\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

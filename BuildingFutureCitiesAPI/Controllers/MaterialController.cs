@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using BuildingFutureCitiesAPI.Models;
@@ -31,7 +32,7 @@ namespace BuildingFutureCitiesAPI.Controllers
             Constructor();
             materialDataModel.GetMaterialDataAndBuildList();
             List<Material> materials = materialDataModel.MaterialList;
-            if (materials.Count <= 0)
+            if (materials.Count <= 0 || materialDataModel.GetDatabaseConnection().Connection == null)
             {
                 return NoContent();
             }
@@ -60,8 +61,15 @@ namespace BuildingFutureCitiesAPI.Controllers
 
         // DELETE api/<MaterialController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int materialId)
         {
+            Constructor();
+            if (materialDataModel.GetDatabaseConnection().Connection.State ==  ConnectionState.Closed )
+            {
+                return NoContent();
+            }
+
+            return Ok("connection OK");
         }
     }
 }

@@ -1,6 +1,13 @@
-﻿using System;
+﻿using BuildingFutureCitiesApp.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data.Services.Client;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,6 +18,36 @@ namespace BuildingFutureCitiesApp.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaFijn, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
+        {
+            Material material = new Material(
+                productName,
+                LiveArea,
+                ObjectLiveAreaFunction,
+                ObjectLiveAreaFijn,
+                Removability,
+                MaterialOrigins,
+                MaterialDistance,
+                Unit_Kg_M2_Amount,
+                EmbodiedEnergie,
+                EmbodiedCO2,
+                LifeSpan
+                );
+
+            var json = JsonConvert.SerializeObject(material);
+            HttpClient client = new HttpClient();
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://ptsv2.com/t/sveyi-1601464129/post");
+            requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Well Done");
+            }
         }
 
         public ActionResult Livingroom()
@@ -43,7 +80,7 @@ namespace BuildingFutureCitiesApp.Controllers
         public ActionResult AddMaterial()
         {
             ViewBag.Message = "Hier kunt u een materiaal toevoegen aan de database.";
-            ViewBag.Title = "Voeg materiaal toe";           
+            ViewBag.Title = "Voeg materiaal toe";
             return View();
         }
     }

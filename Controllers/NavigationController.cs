@@ -55,13 +55,14 @@ namespace BuildingFutureCitiesApp.Controllers
             ViewBag.Title = "Configuratie overzicht";
 
             ConfigurationList = new List<ConfigurationClass>();
-            ConfigurationList.Add(new ConfigurationClass("Woonkamer", 0.86, 634, 0.94, 239));
+            ConfigurationList.Add(new ConfigurationClass("Woonkamer 1", 0.86, 634, 0.94, 239));
+            ConfigurationList.Add(new ConfigurationClass("Keuken 1", 0.86, 634, 0.94, 239));
+            ConfigurationList.Add(new ConfigurationClass("Badkamer 1", 0.86, 634, 0.94, 239));
+            ConfigurationList.Add(new ConfigurationClass("Slaapkamer 1", 0.86, 634, 0.94, 239));
+            ConfigurationList.Add(new ConfigurationClass("Woonkamer 2", 0.86, 634, 0.94, 239));
 
-            ViewBag.RoomName = ConfigurationList[0].RoomName;
-            ViewBag.CurrentConceptSCI = ConfigurationList[0].CurrentConceptSCI;
-            ViewBag.CurrentConceptCO2 = ConfigurationList[0].CurrentConceptCO2;
-            ViewBag.NewConceptSCI = ConfigurationList[0].NewConceptSCI;
-            ViewBag.NewConceptCO2 = ConfigurationList[0].NewConceptCO2;
+            ViewBag.ConfigurationList = ConfigurationList;
+
             return View();
         }
       

@@ -7,6 +7,7 @@ namespace BuildingFutureCitiesApp.Models
 {
     public class Material
     {
+        public int Id { get; set; }
         public string ProductName { get; set; }
         public string LiveArea { get; set; }
         public string ObjectLiveAreaFunction { get; set; }
@@ -20,8 +21,9 @@ namespace BuildingFutureCitiesApp.Models
         public string LifeSpan { get; set; }
 
 
-        public Material(string productName, string liveArea, string objectLiveAreaFunction, string objectLiveAreaFijn, float removAbility, string materialOrigins, string materialDistance, string unit_KG_M2_Amount, string embodiedEnergy, string embodiedCO2, string LifeSpan)
+        public Material(int id ,string productName, string liveArea, string objectLiveAreaFunction, string objectLiveAreaFijn, float removAbility, string materialOrigins, string materialDistance, string unit_KG_M2_Amount, string embodiedEnergy, string embodiedCO2, string LifeSpan)
         {
+            this.Id = id;
             this.ProductName = productName;
             this.LiveArea = LiveArea;
             this.ObjectLiveAreaFunction = objectLiveAreaFunction;

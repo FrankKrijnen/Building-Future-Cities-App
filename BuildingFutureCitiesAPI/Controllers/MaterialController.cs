@@ -48,8 +48,9 @@ namespace BuildingFutureCitiesAPI.Controllers
 
         // POST api/<MaterialController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void SetMaterial([FromBody] string value)
         {
+            Console.WriteLine(value);
         }
 
         // PUT api/<MaterialController>/5

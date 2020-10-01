@@ -53,7 +53,7 @@ namespace BuildingFutureCitiesAPI.Controllers
             [FromForm] int MaterialDistance, [FromForm] int Unit_Kg_M2_Amount, [FromForm] decimal EmbodiedEnergie,
             [FromForm] decimal EmbodiedCO2, [FromForm] int LifeSpan)
         {
-            string qry = @"INSERT INTO materials (materials_id, material, estate_object_id, estate_area_id, function_id, units, origin_id, distance_id, embodied_energy, embodied_co2, lifespan, removability_id, image) VALUES (0, " + ProductName + ", '" + 1 + "', '" + LiveArea + "', '" + ObjectLiveAreaFunction + "', '" + Unit_Kg_M2_Amount + "', '" + MaterialOrigins + "', '" + MaterialDistance + "', '" + EmbodiedEnergie + "', '" + EmbodiedCO2 + "', '" + LifeSpan + "', '" + Removability + "', 'hgfhfgjhfghj');";
+            string qry = "INSERT INTO materials (materials_id, material, estate_object_id, estate_area_id, function_id, units, origin_id, distance_id, embodied_energy, embodied_co2, lifespan, removability_id, image) VALUES (0, '" + @ProductName + "', '" + 1 + "', '" + @LiveArea + "', '" + @ObjectLiveAreaFunction + "', '" + @Unit_Kg_M2_Amount + "', '" + @MaterialOrigins + "', '" + @MaterialDistance + "', '" + @EmbodiedEnergie + "', '" + @EmbodiedCO2 + "', '" + @LifeSpan + "', '" + @Removability + "', 'hgfhfgjhfghj');";
             Constructor();
             materialDataModel.SetMaterialItem(qry);
         }

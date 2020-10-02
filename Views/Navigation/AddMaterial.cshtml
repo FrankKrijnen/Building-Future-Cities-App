@@ -7,9 +7,9 @@
 
 <div class="alert alert-success" id="SuccesCard" hidden="hidden">Uw ingevulde velden zijn opgeslagen!</div> 
 
-<iframe name="dummyFrame" id="dummyframe" style="display: none;" hidden="hidden"></iframe>
 
-<form name="materiaal" action="http://localhost:5000/api/material" method="post" target="dummyframe" onsubmit="this.reset(); SaveMaterial">
+
+<form action="http://localhost:5000/api/material" method="post">
     <div class="col-sm row">
         <div class="col-sm-6">
 
@@ -142,7 +142,6 @@ import { pagevisibility } from "modernizr";
         var LifeSpanText = document.getElementById("LifeSpan").value;
         var ObjectLiveAreaFunctionText = document.getElementById("ObjectLiveAreaFunction").value;
         var ErrorMessage = document.getElementById("ErrorCard");
-        var SuccesMessage = document.getElementById("SuccesCard");
         if (productNameText == ""
             || UnitText == ""
             || EmodiedEnergieText == ""
@@ -154,10 +153,10 @@ import { pagevisibility } from "modernizr";
             || optionText3 == ""
             || optionText4 == "") {
             ErrorMessage.style.display = "block";
-            SuccesMessage.style.display = "none"
+
         } else {
             ErrorMessage.style.display = "none";
-            SuccesMessage.style.display = "block";
+
         }
 </script>
 

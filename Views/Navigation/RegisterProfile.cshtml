@@ -1,3 +1,43 @@
 ﻿<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
+<form name="registreer profiel">
+    <div class="col-sm row">
+        <div class="col-sm-6">
+            <div class="row addmaterialAlignment">
+                <label class="col-sm-3"> Voornaam:</label>
+                <input class="col-sm" id="FirstName" name="firstName" />
+            </div>
+
+            <div class="row addmaterialAlignment">
+                <label class="col-sm-3"> Achternaam:</label>
+                <input class="col-sm" id="LastName" name="lastName" />
+            </div>
+
+            <div class="row addmaterialAlignment">
+                <label class="col-sm-3"> Email:</label>
+                <input class="col-sm" id="Email" name="email" />
+            </div>
+
+            <div class="row addmaterialAlignment">
+                <label class="col-sm-3"> Wachtwoord:</label>
+                <input class="col-sm" id="Password" name="password" />
+            </div>
+
+            <div class="row addmaterialAlignment">
+                <label class="col-sm-3"> Herhaal wachtwoord:</label>
+                <input class="col-sm" id="PasswordRepeat" name="passwordRepeat" />
+            </div>
+            <button style="margin-left:47%; margin-top: 10%;" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">Save!</button>
+            <button style="margin-left:30%; margin-top: 10%;" type="reset" onclick="window.location='https://localhost:44355/Navigation/Profile';">back!</button>
+        </div>
+    </div>
+</form>
+
+@*<form name="registreer profiel2" action="https://localhost:44355/Navigation/Profile">
+    <div class="col-sm row">
+        <div class="col-sm-6">
+            
+        </div>
+    </div>
+</form>*@

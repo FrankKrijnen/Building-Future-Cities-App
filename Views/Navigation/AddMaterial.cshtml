@@ -1,15 +1,8 @@
 ﻿<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-<div class="alert alert-danger" role="alert" id="ErrorCard" hidden="hidden">
-    Error! niet alle velden zijn correct ingevuld!
-</div>
 
-<div class="alert alert-success" id="SuccesCard" hidden="hidden">Uw ingevulde velden zijn opgeslagen!</div> 
-
-<iframe name="dummyFrame" id="dummyframe" style="display: none;" hidden="hidden"></iframe>
-
-<form name="materiaal" action="http://localhost:5000/api/material" method="post" target="dummyframe" onreset="this.submit();">
+<form name="materiaal";">
     <div class="col-sm row">
         <div class="col-sm-6">
 
@@ -111,14 +104,14 @@
                 <label class="col-sm-3">Levensduur:</label>
                 <input class="col-sm" id="LifeSpan" name="LifeSpan" type="number"/>
             </div>
-            <button style="margin-left:47%; margin-top: 10%;" type="reset">Save!</button>
+            <button style="margin-left:47%; margin-top: 10%;" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">Save!</button>
         </div>
 
     </div>
 </form>
 
 
-<script>
+@*<script>
 import { pagevisibility } from "modernizr";
     //werkt niet meer!
     function SaveMaterial() {
@@ -159,5 +152,5 @@ import { pagevisibility } from "modernizr";
             ErrorMessage.style.display = "none";
             SuccesMessage.style.display = "block";
         }
-</script>
+</script>*@
 

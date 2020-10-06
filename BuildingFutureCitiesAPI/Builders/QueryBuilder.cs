@@ -7,6 +7,7 @@ namespace BuildingFutureCitiesAPI.Builders
 {
     public class QueryBuilder
     {
+        //MATERIAL QUERIES
         public string GetDefaultQuery()
         {
             string qry = $@"SELECT * FROM `materials`";

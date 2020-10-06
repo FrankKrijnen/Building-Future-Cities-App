@@ -7,18 +7,18 @@ namespace BuildingFutureCitiesApp.Models
 {
     public class Material
     {
-        public int Id { get; set; }
-        public string ProductName { get; set; }
-        public string LiveArea { get; set; }
-        public string ObjectLiveAreaFunction { get; set; }
-        public string ObjectLiveAreaFijn { get; set; }
-        public float Removability { get; set; }
-        public string MaterialOrigins { get; set; }
-        public string MaterialDistance { get; set; }
-        public string Unit_KG_M2_Amount { get; set; }
-        public string EmbodiedEnergy { get; set; }
-        public string EmbodiedCO2 { get; set; }
-        public string LifeSpan { get; set; }
+        public int Id { get; private set; }
+        public string ProductName { get; private set; }
+        public string LiveArea { get; private set; }
+        public string ObjectLiveAreaFunction { get; private set; }
+        public string ObjectLiveAreaFijn { get; private set; }
+        public float Removability { get; private set; }
+        public string MaterialOrigins { get; private set; }
+        public string MaterialDistance { get; private set; }
+        public string Unit_KG_M2_Amount { get; private set; }
+        public string EmbodiedEnergy { get; private set; }
+        public string EmbodiedCO2 { get; private set; }
+        public string LifeSpan { get; private set; }
 
 
         public Material(int id ,string productName, string liveArea, string objectLiveAreaFunction, string objectLiveAreaFijn, float removAbility, string materialOrigins, string materialDistance, string unit_KG_M2_Amount, string embodiedEnergy, string embodiedCO2, string LifeSpan)

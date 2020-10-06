@@ -15,7 +15,7 @@ namespace BuildingFutureCitiesAPI.DataModels
         public void GetMaterialDataAndBuildList()
         {
             List<Material> materialList = new List<Material>();
-            
+
             using (MySqlCommand qry = GetDatabaseConnection().PrepareSql($@"SELECT 
 materials_id,
 material,
@@ -82,6 +82,24 @@ JOIN functions ON materials.function_id = functions.function_id"))
 
             }
             MaterialList = materialList;
+        }
+        public void SetMaterialItem(string _qry)
+        {
+            try
+            {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(_qry))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

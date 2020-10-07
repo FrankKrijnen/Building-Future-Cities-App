@@ -1,43 +1,72 @@
-﻿<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model BuildingFutureCitiesApp.Models.Profile
 
-<form name="registreer profiel">
-    <div class="col-sm row">
-        <div class="col-sm-6">
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3"> Voornaam:</label>
-                <input class="col-sm" id="FirstName" name="firstName" />
-            </div>
+@{
+    ViewBag.Title = "RegisterProfile";
+}
 
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3"> Achternaam:</label>
-                <input class="col-sm" id="LastName" name="lastName" />
-            </div>
+<h2>RegisterProfile</h2>
 
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3"> Email:</label>
-                <input class="col-sm" id="Email" name="email" />
-            </div>
 
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3"> Wachtwoord:</label>
-                <input class="col-sm" id="Password" name="password" />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Profile</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3"> Herhaal wachtwoord:</label>
-                <input class="col-sm" id="PasswordRepeat" name="passwordRepeat" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
-            <button style="margin-left:47%; margin-top: 10%;" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">Save!</button>
-            <button style="margin-left:30%; margin-top: 10%;" type="reset" onclick="window.location='https://localhost:44355/Navigation/Profile';">back!</button>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default"  formaction="http://localhost:5000/api/profile" formmethod="post"/>
+            </div>
         </div>
     </div>
-</form>
+}
 
-@*<form name="registreer profiel2" action="https://localhost:44355/Navigation/Profile">
-    <div class="col-sm row">
-        <div class="col-sm-6">
-            
-        </div>
-    </div>
-</form>*@
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

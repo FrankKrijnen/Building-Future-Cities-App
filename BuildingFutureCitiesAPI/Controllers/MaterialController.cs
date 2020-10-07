@@ -56,17 +56,12 @@ namespace BuildingFutureCitiesAPI.Controllers
         public void SetMaterial([FromForm] string ProductName, [FromForm] int LiveArea, [FromForm] int ObjectLiveAreaFunction,
             [FromForm] int Removability, [FromForm] int MaterialOrigins,
             [FromForm] int MaterialDistance, [FromForm] int Unit_Kg_M2_Amount, [FromForm] decimal EmbodiedEnergie,
-            [FromForm] decimal EmbodiedCO2, [FromForm] int LifeSpan, [FromForm] string FirstName, 
-            [FromForm] string LastName, [FromForm] string Email, [FromForm] string Password, [FromForm] string PasswordRepeat)
+            [FromForm] decimal EmbodiedCO2, [FromForm] int LifeSpan)
         {          
 
                 string qry = "INSERT INTO materials (materials_id, material, estate_object_id, estate_area_id, function_id, units, origin_id, distance_id, embodied_energy, embodied_co2, lifespan, removability_id, image) VALUES (0, '" + @ProductName + "', '" + 1 + "', '" + @LiveArea + "', '" + @ObjectLiveAreaFunction + "', '" + @Unit_Kg_M2_Amount + "', '" + @MaterialOrigins + "', '" + @MaterialDistance + "', '" + @EmbodiedEnergie + "', '" + @EmbodiedCO2 + "', '" + @LifeSpan + "', '" + @Removability + "', 'hgfhfgjhfghj');";
                 Constructor();
                 materialDataModel.SetMaterialItem(qry);
-
-                string qry2 = "INSERT INTO profile (id, firstname, lastname, email, password) VALUES (0, '" + @FirstName + "', '" + @LastName + "', '" + @Email + "', '" + @Password + "');";
-                Constructor();
-                materialDataModel.SetRegisterProfile(qry2);
 
                 Response.Redirect("https://localhost:44355/");
 

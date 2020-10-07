@@ -109,12 +109,17 @@ namespace BuildingFutureCitiesApp.Controllers
 
             return View();
         }
-      
-        public ActionResult RegisterProfile()
+
+        public ActionResult RegisterProfile(Profile profile)
         {
             ViewBag.Title = "Register";
             ViewBag.Message = "Hier kunt u een account registreren";
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(profile);
+            }
+
+            return RedirectToAction("Configuration");
         }
     }
 }

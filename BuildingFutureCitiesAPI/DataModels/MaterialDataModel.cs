@@ -56,17 +56,19 @@ namespace BuildingFutureCitiesAPI.DataModels
                                 (
                                     Convert.ToInt32(reader["materials_id"]),
                                     reader["material"].ToString(),
-                                    reader["estate_object"].ToString(),
-                                    reader["estate_area"].ToString(),
                                     reader["function"].ToString(),
-                                    Convert.ToInt32(reader["units"]),
+                                    reader["estate_area"].ToString(),
+                                    reader["image"].ToString(),
+                                    reader["lifespan"].ToString(),
+                                    reader["estate_object"].ToString(),
+                                    Convert.ToSingle(reader["removability"]),
                                     reader["origins"].ToString(),
                                     reader["distance"].ToString(),
+                                    reader["units"].ToString(),
                                     reader["embodied_energy"].ToString(),
-                                    reader["embodied_co2"].ToString(),
-                                    reader["lifespan"].ToString(),
-                                    reader["removability"].ToString(),
-                                    reader["image"].ToString()
+                                    Convert.ToSingle(reader["embodied_co2"].ToString())
+
+
 
 
                                 )

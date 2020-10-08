@@ -22,17 +22,6 @@ namespace BuildingFutureCitiesApp.Controllers
             ViewBag.Message = "Badkamer";
             ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
 
-
-
-
-
-
-
-
-            //BathroomMaterialList.Add(new Material(0, "MaterialName", "ObjectLiveAreaFunction", "ObjectLiveAreaRoom", "Image", "ObjectLifeSpan" ,"ObjectLiveAreaLocation",6.19f, "MaterialOrigins", "MaterialDistance", "Units", "EmbodiedEnergy", "EmbodiedCo2", "Lifespan"));
-
-            
-
             using (var client = new HttpClient())
             {
                 var response = client.GetAsync("http://localhost:5000/api/material").Result;
@@ -54,9 +43,11 @@ namespace BuildingFutureCitiesApp.Controllers
                     List<Material> HandWashMaterialList = new List<Material>();
                     List<Material> BodyWashMaterialList = new List<Material>();
                     List<Material> StorageMaterialList = new List<Material>();
-                    List<Material> AfvoerMaterialList = new List<Material>();
+                    List<Material> SeparationMaterialList = new List<Material>();
 
-
+                    //Bathroom list with all sorted material rows 
+                    List<List<Material>> BathroomRowList = new List<List<Material>>();
+                    
                     foreach (var material in BathroomMaterialList)
                     {
                         if (material.ObjectLiveAreaFunction == "Verlichting")
@@ -93,7 +84,7 @@ namespace BuildingFutureCitiesApp.Controllers
                         }
                         if (material.ObjectLiveAreaFunction == "Afscheiding")
                         {
-                            AfvoerMaterialList.Add(material);
+                             SeparationMaterialList.Add(material);
                         }
                     }
 
@@ -107,17 +98,18 @@ namespace BuildingFutureCitiesApp.Controllers
                         ViewBag.BathroomMaterialList = null;
                     }
 
-                    ViewBag.LightingMaterialList = LightingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.VentilationMaterialList = VentilationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.HeatingMaterialList = HeatingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.DryingCapacityMaterialList = DryingCapacityMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.EnergyMaterialList = EnergyMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.HandWashMaterialList = HandWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.BodyWashMaterialList = BodyWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.StorageMaterialList = StorageMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
-                    ViewBag.AfvoerMaterialList = AfvoerMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList(); 
 
+                    BathroomRowList.Add(LightingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(VentilationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(HeatingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(DryingCapacityMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(EnergyMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(HandWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(BodyWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(StorageMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
+                    BathroomRowList.Add(SeparationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
 
+                    ViewBag.BathroomRowList = BathroomRowList;
                 }
             }
 

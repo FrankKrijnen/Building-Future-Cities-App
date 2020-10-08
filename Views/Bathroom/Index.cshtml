@@ -15,215 +15,45 @@
     </thead>
     <tbody>
     
-       
-    <tr>
+       @foreach (List<Material> rowMaterials in ViewBag.BathroomRowList)
+       {
+        <tr>
+            <th scope="row">@if (rowMaterials.Count > 0)
+                            {
+                                Write(rowMaterials[0].ObjectLiveAreaFunction);
+                            }
+                            else
+                            {
+                                Write("No items found");
+                            }</th>
 
-        <th scope="row">Verlichting</th>
-        @foreach(Material material in ViewBag.LightingMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
+            @foreach (Material material in rowMaterials)
+            {
+
+                <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
+                    <label>
+                        <input type="radio" name="@if (material != null)
+                                                  {
+                                                      Write(material.ObjectLiveAreaFunction);
+                                                  }
+                                                  else
+                                                  {
+                                                      Write("null");
+                                                  }" onclick="stateCheckInput()" />
+                        <img src="https://via.placeholder.com/100" />
+                        <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
+                        <p>
                         <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
+                        <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
                         <p>PCI: 0.02</p>
 
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Ventilatie</th>
-        @foreach(Material material in ViewBag.VentilationMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Verwarming</th>
-        @foreach(Material material in ViewBag.HeatingMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Droog Capaciteit</th>
-        @foreach(Material material in ViewBag.DryingCapacityMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Energie</th>
-        @foreach(Material material in ViewBag.EnergyMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Handwassen</th>
-        @foreach(Material material in ViewBag.HandWashMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Lichaamwassen</th>
-        @foreach(Material material in ViewBag.BodyWashMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Opbergen</th>
-        @foreach(Material material in ViewBag.StorageMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-    <tr>
-
-        <th scope="row">Afscheiding</th>
-        @foreach(Material material in ViewBag.AfvoerMaterialList)
-        {
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-green");}
-                       else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-orange");}
-                       else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-yellow");}
-                       else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-red");}">
-                <label>
-                    <input type="radio" name="shower" onclick="stateCheckInput()" />
-                    <img src="https://via.placeholder.com/100" />
-                    <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
-                    <p>
-                        <p>@material.MaterialName</p>
-                        <p>@material.EmbodiedCO2</p>
-                        <p>PCI: 0.02</p>
-
-                    </p>
-                </label>
-            </td>
-        }
-    </tr>
-
+                        </p>
+                    </label>
+                </td>
+            }
+        </tr>
+       }
+    
     </tbody>
 </table>
 

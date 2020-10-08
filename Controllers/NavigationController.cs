@@ -116,6 +116,7 @@ namespace BuildingFutureCitiesApp.Controllers
             ViewBag.Message = "Hier kunt u een account registreren";
             if (!ModelState.IsValid)
             {
+                ModelState.Clear();
                 return View(profile);
             }
 

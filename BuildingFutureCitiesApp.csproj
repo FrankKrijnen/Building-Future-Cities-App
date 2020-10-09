@@ -139,6 +139,7 @@
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
     <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +286,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Navigation\AddMaterial.cshtml" />
+    <Content Include="Views\Navigation\RegisterProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

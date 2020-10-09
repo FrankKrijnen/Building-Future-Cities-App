@@ -97,11 +97,35 @@ namespace BuildingFutureCitiesAPI.DataModels
                 {
                     command.ExecuteNonQuery();
                 }
+
             }
             catch (MySqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            GetDatabaseConnection().Connection.Close();
+        }
+
+        public void SetRegisterProfile(string _qry2)
+        {
+             try
+             {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(_qry2))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+             }
+
+             catch (MySqlException ex)
+             {
+                Console.WriteLine(ex.Message);
+             }
+            GetDatabaseConnection().Connection.Close();
         }
 
         public bool DeleteMaterial(int materialId)

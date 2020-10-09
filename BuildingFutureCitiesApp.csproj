@@ -59,6 +59,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,12 +131,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BathroomController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
+    <Compile Include="Models\LoginValidation.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,7 +273,7 @@
     <Content Include="Views\Navigation\Livingroom.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
     <Content Include="Views\Navigation\Kitchen.cshtml" />
-    <Content Include="Views\Navigation\Bathroom.cshtml" />
+    <Content Include="Views\Bathroom\Index.cshtml" />
     <Content Include="Views\Navigation\Bedroom.cshtml" />
     <Content Include="Views\Navigation\Profile.cshtml" />
     <Content Include="Views\Navigation\Configuration.cshtml" />
@@ -284,12 +289,14 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Navigation\AddMaterial.cshtml" />
     <Content Include="Views\Navigation\RegisterProfile.cshtml" />
+    <Content Include="Views\Navigation\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Configuration\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Mat\" />
   </ItemGroup>
   <ItemGroup>

@@ -59,20 +59,20 @@ label {
     position: absolute;
     top: -25px;
 }
-.table-cell-red {
-    background-color: #db4848;
+.table-cell-darkgrey {
+    background-color: #797a7e;
     color: black;
 }
-.table-cell-orange {
-    background-color: #fec771;
+.table-cell-grey {
+    background-color: #d8d3cd;
     color: black;
 }
-.table-cell-yellow {
-    background-color: #e6e56c;
+.table-cell-lightgrey {
+    background-color: #f7f2e7;
     color: black;
 }
-.table-cell-green {
-    background-color: #64e291;
+.table-cell-mint {
+    background-color: #e0ece4;
     color: black;
 }
 .table-cell-selected {
@@ -84,4 +84,7 @@ label {
 
 .addmaterialAlignment{
     margin-top: 3px;
+}
+table {
+    display: table !important;
 }

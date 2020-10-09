@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BuildingFutureCitiesAPI.DataModels;
+using BuildingFutureCitiesAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +15,16 @@ namespace BuildingFutureCitiesAPI.Controllers
     {
 
         MaterialDataModel materialDataModel;
+        private ProfileDataModel profileDataModel;
 
         public void Constructor()
         {
             materialDataModel = new MaterialDataModel();
+        }
+
+        public void InitializeDataModel()
+        {
+            profileDataModel = new ProfileDataModel();
         }
 
         [HttpPost]
@@ -27,6 +34,20 @@ namespace BuildingFutureCitiesAPI.Controllers
             Constructor();
             materialDataModel.SetRegisterProfile(qry2);
             Response.Redirect("https://localhost:44355/Navigation/Profile");
+        } 
+
+        [HttpPost("checkuser")]
+        public ActionResult GetProfile([FromForm] string Email, [FromForm] string Password)
+        {
+            string qry = "SELECT * FROM `profile` WHERE email = '" + @Email + "' AND password = '" + @Password + "';";
+            InitializeDataModel();
+            Profile profile = profileDataModel.GetProfileData(qry);
+            if (profile.Email.Length <= 0 || profileDataModel.GetDatabaseConnection().Connection == null)
+            {
+                return NoContent();
+            }
+
+            return Ok(profile);
         }
     }
 }

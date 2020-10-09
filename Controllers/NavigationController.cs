@@ -22,14 +22,14 @@ namespace BuildingFutureCitiesApp.Controllers
             return View();
         }
 
-        //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaFijn, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
+        //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaRoom, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
         //{
         //    Material material = new Material(
         //        1,
         //        productName,
         //        LiveArea,
         //        ObjectLiveAreaFunction,
-        //        ObjectLiveAreaFijn,
+        //        ObjectLiveAreaRoom,
         //        Removability,
         //        MaterialOrigins,
         //        MaterialDistance,
@@ -65,12 +65,7 @@ namespace BuildingFutureCitiesApp.Controllers
             ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
             return View();
         }
-        public ActionResult Bathroom()
-        {
-            ViewBag.Message = "Badkamer";
-            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
-            return View();
-        }
+        
 
         public ActionResult Bedroom()
         {
@@ -109,7 +104,6 @@ namespace BuildingFutureCitiesApp.Controllers
 
             return View();
         }
-
         public ActionResult RegisterProfile(Profile profile)
         {
             ViewBag.Title = "Register";
@@ -121,6 +115,11 @@ namespace BuildingFutureCitiesApp.Controllers
             }
 
             return RedirectToAction("Configuration");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
         }
     }
 }

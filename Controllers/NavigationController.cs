@@ -104,7 +104,6 @@ namespace BuildingFutureCitiesApp.Controllers
 
             return View();
         }
-
         public ActionResult RegisterProfile(Profile profile)
         {
             ViewBag.Title = "Register";
@@ -116,6 +115,11 @@ namespace BuildingFutureCitiesApp.Controllers
             }
 
             return RedirectToAction("Configuration");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
         }
     }
 }

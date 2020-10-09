@@ -138,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
+    <Compile Include="Models\LoginValidation.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,12 +289,14 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Navigation\AddMaterial.cshtml" />
     <Content Include="Views\Navigation\RegisterProfile.cshtml" />
+    <Content Include="Views\Navigation\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Configuration\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Mat\" />
   </ItemGroup>
   <ItemGroup>

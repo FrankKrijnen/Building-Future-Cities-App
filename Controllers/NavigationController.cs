@@ -22,36 +22,6 @@ namespace BuildingFutureCitiesApp.Controllers
             return View();
         }
 
-        //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaFijn, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
-        //{
-        //    Material material = new Material(
-        //        1,
-        //        productName,
-        //        LiveArea,
-        //        ObjectLiveAreaFunction,
-        //        ObjectLiveAreaFijn,
-        //        Removability,
-        //        MaterialOrigins,
-        //        MaterialDistance,
-        //        Unit_Kg_M2_Amount,
-        //        EmbodiedEnergie,
-        //        EmbodiedCO2,
-        //        LifeSpan
-        //        );
-
-        //    var json = JsonConvert.SerializeObject(material);
-        //    HttpClient client = new HttpClient();
-        //    HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5000/api/material");
-        //    requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        //    HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        Console.WriteLine("Well Done");
-        //    }
-        //}
-
         public ActionResult Livingroom()
         {
             ViewBag.Message = "Woonkamer";
@@ -126,5 +96,35 @@ namespace BuildingFutureCitiesApp.Controllers
         {
             return View();
         }
+
+        //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaFijn, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
+        //{
+        //    Material material = new Material(
+        //        1,
+        //        productName,
+        //        LiveArea,
+        //        ObjectLiveAreaFunction,
+        //        ObjectLiveAreaFijn,
+        //        Removability,
+        //        MaterialOrigins,
+        //        MaterialDistance,
+        //        Unit_Kg_M2_Amount,
+        //        EmbodiedEnergie,
+        //        EmbodiedCO2,
+        //        LifeSpan
+        //        );
+
+        //    var json = JsonConvert.SerializeObject(material);
+        //    HttpClient client = new HttpClient();
+        //    HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5000/api/material");
+        //    requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //    HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        Console.WriteLine("Well Done");
+        //    }
+        //}
     }
 }

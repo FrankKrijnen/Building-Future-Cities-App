@@ -36,7 +36,7 @@ namespace BuildingFutureCitiesAPI.Controllers
             Response.Redirect("https://localhost:44355/Navigation/Profile");
         } 
 
-        [HttpPost("checkuser")]
+        [HttpPost("LoginValidation")]
         public ActionResult GetProfile([FromForm] string Email, [FromForm] string Password)
         {
             string qry = "SELECT * FROM `profile` WHERE email = '" + @Email + "' AND password = '" + @Password + "';";

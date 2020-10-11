@@ -3,14 +3,33 @@
     ViewBag.Title = "Profile";
 }
 
-<h2>Profiel</h2>
+<h2 style="text-align: center;">Profiel van F. Krijnen</h2>
 
 <div class="row">
-    <a class="addmaterial" href="https://localhost:44355/Navigation/AddMaterial">Toevoegen materiaal</a>
+    <div class="col-md-12 border-bottom">
+        <h4>Details</h4>
+    </div>
+    <div class="col-md-12">
+        <br>
+    </div>
+    
+    <dl class="row col-md-12">
+        
+        <dt class="col-sm-3">Voornaam</dt>
+        <dd class="col-sm-9">Frank</dd>
+        <dt class="col-sm-3">Achternaam</dt>
+        <dd class="col-sm-9">Krijnen</dd>
+        <dt class="col-sm-3">Emailadres</dt>
+        <dd class="col-sm-9">frank@gmail.com</dd>
+        <dt class="col-sm-3">Rol</dt>
+        <dd class="col-sm-9">Beheerder</dd>
+    </dl>
+    <div class="col-md-12 border-bottom">
+        <h5>Acties</h5>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'https://localhost:44355/Navigation/AddMaterial'">Toevoegen materiaal</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href = 'https://localhost:44355/Navigation/Configuration'">Configuratie overzicht</button>
+    </div>
 </div>
-
-<div class="row">
-    <a class="addmaterial" href="https://localhost:44355/Navigation/RegisterProfile">Registreer Profiel</a>
-</div>
-<li>@Html.ActionLink("Configuratie", "Configuration", "Navigation")</li>
-

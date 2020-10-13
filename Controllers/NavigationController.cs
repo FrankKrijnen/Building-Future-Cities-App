@@ -94,8 +94,28 @@ namespace BuildingFutureCitiesApp.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            if (Request.Cookies["email"] != null &&
+                Request.Cookies["firstname"] != null &&
+                Request.Cookies["lastname"] != null)
+            {
+                return Redirect("https://localhost:44355/Navigation/Index");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
+
+        public ActionResult Logout()
+        {
+
+            Response.Cookies["email"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["firstname"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["lastname"].Expires = DateTime.Now.AddDays(-1);
+            return Redirect("https://localhost:44355/Navigation/Login");
+        }
+
 
         //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaFijn, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
         //{

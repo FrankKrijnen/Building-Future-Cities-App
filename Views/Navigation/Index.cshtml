@@ -1,11 +1,26 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    if (Request.Cookies["email"] != null &&
+        Request.Cookies["firstname"] != null &&
+        Request.Cookies["lastname"] != null)
+    {
+        ViewBag.email = HttpUtility.UrlDecode(Request.Cookies["email"].Value);
+        ViewBag.firstname = HttpUtility.UrlDecode(Request.Cookies["firstname"].Value);
+        ViewBag.lastname = HttpUtility.UrlDecode(Request.Cookies["lastname"].Value);
+
+    }
+    else
+    {
+        Response.Redirect("https://localhost:44355/Navigation/Login");
+    }
+
 }
 
 
 
 <div class="jumbotron">
-    <h1 class="col-sm-8">Welkom, Frank!</h1>
+    <h1 class="col-sm-8">Welkom, @ViewBag.firstname!</h1>
 </div>
 
 <div class="row">

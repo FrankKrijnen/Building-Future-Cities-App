@@ -6,6 +6,10 @@ using BuildingFutureCitiesAPI.DataModels;
 using BuildingFutureCitiesAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using MySqlX.XDevAPI;
 
 namespace BuildingFutureCitiesAPI.Controllers
 {
@@ -47,7 +51,11 @@ namespace BuildingFutureCitiesAPI.Controllers
                 return NoContent();
             }
 
-            return Ok(profile);
+            Response.Cookies.Append("firstname", profile.FirstName);
+            Response.Cookies.Append("lastname", profile.LastName);
+            Response.Cookies.Append("email", profile.Email);
+            
+            return Redirect("https://localhost:44355/Navigation/index");
         }
     }
 }

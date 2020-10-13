@@ -1,9 +1,26 @@
-﻿
+﻿@using System.Web.UI.WebControls
+
 @{
     ViewBag.Title = "Profile";
+
+    if (Request.Cookies["email"] != null &&
+        Request.Cookies["firstname"] != null &&
+        Request.Cookies["lastname"] != null)
+    {
+        ViewBag.email = HttpUtility.UrlDecode(Request.Cookies["email"].Value);
+        ViewBag.firstname = HttpUtility.UrlDecode(Request.Cookies["firstname"].Value);
+        ViewBag.lastname = HttpUtility.UrlDecode(Request.Cookies["lastname"].Value);
+
+        string firstname = ViewBag.firstname;
+        ViewBag.firstletter = firstname.Remove(1, firstname.Length - 1);
+    }
+    else
+    {
+        Response.Redirect("https://localhost:44355/Navigation/Login");
+    }
 }
 
-<h2 style="text-align: center;">Profiel van F. Krijnen</h2>
+<h2 style="text-align: center;">Profiel van @ViewBag.firstletter. @ViewBag.lastname</h2>
 
 <div class="row">
     <div class="col-md-12 border-bottom">
@@ -16,11 +33,11 @@
     <dl class="row col-md-12">
         
         <dt class="col-sm-3">Voornaam</dt>
-        <dd class="col-sm-9">Frank</dd>
+        <dd class="col-sm-9">@ViewBag.firstname</dd>
         <dt class="col-sm-3">Achternaam</dt>
-        <dd class="col-sm-9">Krijnen</dd>
+        <dd class="col-sm-9">@ViewBag.lastname</dd>
         <dt class="col-sm-3">Emailadres</dt>
-        <dd class="col-sm-9">frank@gmail.com</dd>
+        <dd class="col-sm-9">@ViewBag.email</dd>
         <dt class="col-sm-3">Rol</dt>
         <dd class="col-sm-9">Beheerder</dd>
     </dl>

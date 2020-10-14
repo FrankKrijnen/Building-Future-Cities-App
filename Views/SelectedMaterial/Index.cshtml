@@ -1,9 +1,12 @@
-﻿@using BuildingFutureCitiesApp.Models
+﻿
+@using BuildingFutureCitiesApp.Models
+@{
+    ViewBag.Title = "Index";
+}
 
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Index</h2>
 
-<form>
+@*<form>
     <table class="table table-hover table-responsive table-bordered ">
         <thead class="table-white">
             <tr>
@@ -16,7 +19,7 @@
         </thead>
         <tbody>
 
-            @foreach (List<Material> rowMaterials in ViewBag.BathroomRowList)
+            @foreach (var item in )
             {
                 <tr>
                     <th scope="row">
@@ -43,9 +46,8 @@
                                                   {
                                                       Write("null");
                                                   }"
-                                       value="@material.Id"
-                                       onclick="stateCheckInput()"
-                                       required="required"/>
+                                       value="@material.MaterialName"
+                                       onclick="stateCheckInput()" />
                                 <img src="https://via.placeholder.com/100" />
                                 <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
                                 <p>
@@ -91,6 +93,4 @@
     <br />
     <button class="btn">Lees gekozen materialen</button>
 
-</form>
-
-
+</form>*@

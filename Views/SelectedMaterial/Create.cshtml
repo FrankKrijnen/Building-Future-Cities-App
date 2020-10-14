@@ -1,0 +1,48 @@
+﻿@using BuildingFutureCitiesApp.Models
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<h2>Create</h2>
+<table class="table table-hover table-responsive table-bordered ">
+    <thead class="table-white">
+        <tr>
+            <th scope="col" style="width:30%"></th>
+            <th scope="col" style="width:70%"><p>Gekozen materialen</p></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Material material in ViewBag.SelectedMaterials)
+        {
+            <tr>
+                <th scope="row">
+                    @if (ViewBag.SelectedMaterials.Count > 0)
+                    {
+                        Write(material.ObjectLiveAreaFunction);
+                    }
+                    else
+                    {
+                        Write("No items found");
+                    }
+                </th>
+
+                <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                    <label>
+
+                        <img src="https://via.placeholder.com/100" />
+                        <p>
+                        <p>@material.MaterialName</p>
+                        <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                        <p>PCI: 0.02</p>
+
+                        </p>
+                    </label>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<button class="btn" onclick="history.go(-1);">Terug</button>

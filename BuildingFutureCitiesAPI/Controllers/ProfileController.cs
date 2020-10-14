@@ -46,10 +46,17 @@ namespace BuildingFutureCitiesAPI.Controllers
             string qry = "SELECT * FROM `profile` WHERE email = '" + @Email + "' AND password = '" + @Password + "';";
             InitializeDataModel();
             Profile profile = profileDataModel.GetProfileData(qry);
-            if (profile.Email.Length <= 0 || profileDataModel.GetDatabaseConnection().Connection == null)
+            if (profileDataModel.GetDatabaseConnection().Connection == null)
             {
                 return NoContent();
             }
+            if (profile.Email == null)
+            {
+                Response.Cookies.Append("account_not_found", "true");
+                return Redirect("https://localhost:44355/Navigation/Login");
+            }
+
+            //Models.Profile.Email.**get** returned null.
 
             Response.Cookies.Append("firstname", profile.FirstName);
             Response.Cookies.Append("lastname", profile.LastName);

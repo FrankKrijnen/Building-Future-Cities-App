@@ -3,21 +3,7 @@
 @{
     ViewBag.Title = "Profile";
 
-    if (Request.Cookies["email"] != null &&
-        Request.Cookies["firstname"] != null &&
-        Request.Cookies["lastname"] != null)
-    {
-        ViewBag.email = HttpUtility.UrlDecode(Request.Cookies["email"].Value);
-        ViewBag.firstname = HttpUtility.UrlDecode(Request.Cookies["firstname"].Value);
-        ViewBag.lastname = HttpUtility.UrlDecode(Request.Cookies["lastname"].Value);
-
-        string firstname = ViewBag.firstname;
-        ViewBag.firstletter = firstname.Remove(1, firstname.Length - 1);
-    }
-    else
-    {
-        Response.Redirect("https://localhost:44355/Navigation/Login");
-    }
+    
 }
 
 <h2 style="text-align: center;">Profiel van @ViewBag.firstletter. @ViewBag.lastname</h2>

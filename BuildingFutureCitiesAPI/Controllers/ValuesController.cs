@@ -24,7 +24,7 @@ namespace BuildingFutureCitiesAPI.Controllers
         public ActionResult<string> Get(int id)
         {
             Material material = new Material(id, "Metal Door Handle");
-            return Ok($"Material found with id:{id} name: {material.Name}");
+            return Ok($"Material found with id:{id} name: {material.MaterialName}");
         }
 
         // GET api/values/create/4/radiator
@@ -33,7 +33,7 @@ namespace BuildingFutureCitiesAPI.Controllers
         {
           
             Material material = new Material(id,name);
-            return Ok($"Material created in database with id: {material.Id} and name: {material.Name}");
+            return Ok($"Material created in database with id: {material.Id} and name: {material.MaterialName}");
         }
 
         // POST api/values
@@ -56,7 +56,7 @@ namespace BuildingFutureCitiesAPI.Controllers
         public ActionResult<string> Put(int id, string newName)
         {
             Material material = new Material(id, "Wooden Door");
-            return Ok($"Material Updated in database With id: {id} and name: {material.Name} to name : {newName}");
+            return Ok($"Material Updated in database With id: {id} and name: {material.MaterialName} to name : {newName}");
         }
 
         // DELETE api/values/5
@@ -64,7 +64,7 @@ namespace BuildingFutureCitiesAPI.Controllers
         public ActionResult<string> Delete(int id)
         {
             Material material = new Material(id,"Wooden Door");
-            return Ok($"Material Deleted in database With id: {id} and name: {material.Name}");
+            return Ok($"Material Deleted in database With id: {id} and name: {material.MaterialName}");
         }
     }
 }

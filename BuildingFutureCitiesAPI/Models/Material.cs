@@ -8,83 +8,79 @@ namespace BuildingFutureCitiesAPI.Models
     public class Material
     {
         public int Id { get; private set; }
-        public string Name { get; private set; }
-        public string EstateObjectName { get; private set; }
-        public string EstateArea { get; private set; }
-        public string Function { get; private set; }
-        public int Units { get; private set; }
-        public string OriginName{ get; private set; }
-        public string Distance { get; private set; }
+        public string MaterialName { get; private set; }
         public string EmbodiedEnergy { get; private set; }
-        public string EmbodiedCo2 { get; private set; }
-        public string Lifespan{ get; private set; }
-        public string Removability { get; private set; }
+        public float EmbodiedCO2 { get; private set; }
         public string Image { get; private set; }
+
+        public string ObjectLifeSpan { get; private set; }
+
+        public string Unit_KG_M2_Amount { get; private set; }
+        public string ObjectLiveAreaRoom { get; private set; }
+        public string ObjectLiveAreaLocation { get; private set; }
+        public string ObjectLiveAreaFunction { get; private set; }
+
+        public string MaterialDistance { get; private set; }
+
+        public string MaterialOrigins { get; private set; }
+        public float Removability { get; private set; }
 
         public Material()
         {
             Id = 0;
-            Name = "";
-            EstateObjectName = "";
-            EstateArea = ""; 
-            Function = "";
-            Units = 0; 
-            OriginName = "";
-            Distance = ""; 
-            EmbodiedEnergy = "";
-            EmbodiedCo2 = "";
-            Lifespan = ""; 
-            Removability = ""; 
+            MaterialName = "";
+            ObjectLiveAreaFunction = "";
+            ObjectLiveAreaRoom = "";
             Image = "";
+            ObjectLifeSpan = "";
+            ObjectLiveAreaLocation = "";
+            Removability = 0;
+            MaterialOrigins = "";
+            MaterialDistance = "";
+            Unit_KG_M2_Amount = "";
+            EmbodiedEnergy = "";
+            EmbodiedCO2 = 0f;
         }
-        public Material(int id, string name)
+        public Material(int id, string materialName)
         {
             Id = id;
-            Name = name;
-            EstateObjectName = "";
-            EstateArea = "";
-            Function = "";
-            Units = 0;
-            OriginName = "";
-            Distance = "";
-            EmbodiedEnergy = "";
-            EmbodiedCo2 = "";
-            Lifespan = "";
-            Removability = "";
+            MaterialName = materialName;
+            ObjectLiveAreaFunction = "";
+            ObjectLiveAreaRoom = "";
             Image = "";
+            ObjectLifeSpan = "";
+            ObjectLiveAreaLocation = "";
+            Removability = 0;
+            MaterialOrigins = "";
+            MaterialDistance = "";
+            Unit_KG_M2_Amount = "";
+            EmbodiedEnergy = "";
+            EmbodiedCO2 = 0f;
         }
-        public Material(int id, string name, string estateObjectName, string estateArea, string function,
-            int units, string originName, string distance, string embodiedEnergy, string embodiedCo2, string lifespan, string removability, string image)
+        public Material(int id, string materialName, string objectLiveAreaFunction, string objectLiveAreaRoom, string image, string objectLifeSpan, string objectLiveAreaLocation, float removAbility, string materialOrigins, string materialDistance, string unit_KG_M2_Amount, string embodiedEnergy, float embodiedCO2)
         {
             Id = id;
-            Name = name;
-            EstateObjectName = estateObjectName;
-            EstateArea = estateArea;
-            Function = function;
-            Units = units;
-            OriginName = originName;
-            Distance = distance;
-            EmbodiedEnergy = embodiedEnergy;
-            EmbodiedCo2 = embodiedCo2;
-            Lifespan = lifespan;
-            Removability = removability;
+            MaterialName = materialName;
+            ObjectLiveAreaFunction = objectLiveAreaFunction;
+            ObjectLiveAreaRoom = objectLiveAreaRoom;
             Image = image;
+            ObjectLifeSpan = objectLifeSpan;
+            ObjectLiveAreaLocation = objectLiveAreaLocation;
+            Removability = removAbility;
+            MaterialOrigins = materialOrigins;
+            MaterialDistance = materialDistance;
+            Unit_KG_M2_Amount = unit_KG_M2_Amount;
+            EmbodiedEnergy = embodiedEnergy;
+            EmbodiedCO2 = embodiedCO2;
         }
-        public int GetMaterialId()
-        {
-            return Id;
-        }
-        public string GetMaterialName()
-        {
-            return Name;
-        }
+       
         public void SetMaterialId(int id)
         {
             this.Id = id;
         }
-        public void SetMaterialName(string name)
+        public void SetMaterialName(string materialName)
         {
-            this.Name = name;
+            this.MaterialName = materialName;
         }
 
 

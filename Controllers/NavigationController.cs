@@ -12,7 +12,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
-
 namespace BuildingFutureCitiesApp.Controllers
 {
     public class NavigationController : Controller
@@ -27,6 +26,36 @@ namespace BuildingFutureCitiesApp.Controllers
             }
             return Redirect("https://localhost:44355/Navigation/Login");
         }
+
+        //public void SetMaterial(string productName, string LiveArea, string ObjectLiveAreaFunction, string ObjectLiveAreaRoom, float Removability, string MaterialOrigins, string MaterialDistance, string Unit_Kg_M2_Amount, string EmbodiedEnergie, string EmbodiedCO2, string LifeSpan)
+        //{
+        //    Material material = new Material(
+        //        1,
+        //        productName,
+        //        LiveArea,
+        //        ObjectLiveAreaFunction,
+        //        ObjectLiveAreaRoom,
+        //        Removability,
+        //        MaterialOrigins,
+        //        MaterialDistance,
+        //        Unit_Kg_M2_Amount,
+        //        EmbodiedEnergie,
+        //        EmbodiedCO2,
+        //        LifeSpan
+        //        );
+
+        //    var json = JsonConvert.SerializeObject(material);
+        //    HttpClient client = new HttpClient();
+        //    HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5000/api/material");
+        //    requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //    HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        Console.WriteLine("Well Done");
+        //    }
+        //}
 
         public ActionResult Livingroom()
         {

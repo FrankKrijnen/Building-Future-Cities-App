@@ -8,10 +8,10 @@
         <thead class="table-white">
             <tr>
                 <th scope="col">Legenda <br /><br /><img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;Huidig Concept</th>
-                <th scope="col" class="table-cell-red"><p>Lineair</p></th>
-                <th scope="col" class="table-cell-orange"><p>Low-Circulair</p></th>
-                <th scope="col" class="table-cell-yellow"><p>Medium-Circulair</p></th>
-                <th scope="col" class="table-cell-green"><p>Circulair</p></th>
+                <th scope="col" class="table-cell-darkgrey"><p>Lineair</p></th>
+                <th scope="col" class="table-cell-grey"><p>Low-Circulair</p></th>
+                <th scope="col" class="table-cell-lightgrey"><p>Medium-Circulair</p></th>
+                <th scope="col" class="table-cell-mint"><p>Circulair</p></th>
             </tr>
         </thead>
         <tbody>
@@ -33,34 +33,35 @@
                     @foreach (Material material in rowMaterials)
                     {
 
-                <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
-                           else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");}
-                           else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");}
-                           else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
-                    <label>
-                        <input type="radio" name="@if (material != null)
-                                                  {
-                                                      Write(material.ObjectLiveAreaFunction);
-                                                  }
-                                                  else
-                                                  {
-                                                      Write("null");
-                                                  }"
+                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
+                                   else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");}
+                                   else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");}
+                                   else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                            <label>
+                                <input type="radio" name="@if (material != null)
+                                                          {
+                                                              Write(material.ObjectLiveAreaFunction);
+                                                          }
+                                                          else
+                                                          {
+                                                              Write("null");
+                                                          }"
                                        value="@material.Id"
                                        onclick="stateCheckInput()"
                                        required="required"/>
-                                <img src="https://via.placeholder.com/100" />
-                                <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
+                                <img src="https://picsum.photos/100" />
                                 <p>
-                                <p>@material.MaterialName</p>
-                                <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
-                                <p>PCI: 0.02</p>
+                                    <p>@material.MaterialName</p>
+                                    <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                                    <p>PCI: 0.02</p>
 
                                 </p>
                             </label>
                         </td>
+                       
                     }
                 </tr>
+                
             }
 
         </tbody>
@@ -89,10 +90,9 @@
         </tbody>
     </table>
 
-    <button class="btn" formaction="https://localhost:44355/SelectedMaterial/create" formmethod="post">Bewaar gekozen materialen</button>
+    <button class="btn btn-primary" formaction="https://localhost:44355/SelectedMaterial/create" formmethod="post">Bevestig keuze</button>
     <br />
     <br />
-    <button class="btn">Lees gekozen materialen</button>
 
 </form>
 

@@ -1,0 +1,96 @@
+﻿
+@using BuildingFutureCitiesApp.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<form>
+    <table class="table table-hover table-responsive table-bordered ">
+        <thead class="table-white">
+            <tr>
+                <th scope="col">Legenda <br /><br /><img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;Huidig Concept</th>
+                <th scope="col" class="table-cell-red"><p>Lineair</p></th>
+                <th scope="col" class="table-cell-orange"><p>Low-Circulair</p></th>
+                <th scope="col" class="table-cell-yellow"><p>Medium-Circulair</p></th>
+                <th scope="col" class="table-cell-green"><p>Circulair</p></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in )
+            {
+                <tr>
+                    <th scope="row">
+                        @if (rowMaterials.Count > 0)
+                        {
+                            Write(rowMaterials[0].ObjectLiveAreaFunction);
+                        }
+                        else
+                        {
+                            Write("No items found");
+                        }
+                    </th>
+
+                    @foreach (Material material in rowMaterials)
+                    {
+
+                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                            <label>
+                                <input type="radio" name="@if (material != null)
+                                                  {
+                                                      Write(material.ObjectLiveAreaFunction);
+                                                  }
+                                                  else
+                                                  {
+                                                      Write("null");
+                                                  }"
+                                       value="@material.MaterialName"
+                                       onclick="stateCheckInput()" />
+                                <img src="https://via.placeholder.com/100" />
+                                <img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />
+                                <p>
+                                <p>@material.MaterialName</p>
+                                <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                                <p>PCI: 0.02</p>
+
+                                </p>
+                            </label>
+                        </td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+    <table class="table table-hover table-bordered" style="width: 50%;">
+        <thead>
+            <tr>
+                <td>TOTALEN</td>
+                <td>SCI</td>
+                <td>CO2</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Huidig Concept</td>
+                <td>0.86</td>
+                <td>634kg CO2 equiv</td>
+            </tr>
+            <tr>
+                <td>Nieuw Concept</td>
+                <td>0.94</td>
+                <td>239kg CO2 equiv</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn" formaction="https://localhost:44355/SelectedMaterial/create" formmethod="post">Bewaar gekozen materialen</button>
+    <br />
+    <br />
+    <button class="btn">Lees gekozen materialen</button>
+
+</form>*@

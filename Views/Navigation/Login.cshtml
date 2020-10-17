@@ -1,0 +1,27 @@
+﻿
+
+@{
+    ViewBag.Title = "Login";
+
+
+}
+
+<div class="jumbotron">
+    <p class="lead">Deze app is gemaakt door The Sharpers en is een tool om het CO2 equivalent bij het renoveren van woningen te verminderen</p>
+</div>
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            @Html.Partial("LoginForm")
+        </div>
+        <div class="flip-card-back">
+            @Html.Partial("RegisterProfile")
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

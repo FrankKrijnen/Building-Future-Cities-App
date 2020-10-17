@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 20px;
     padding-bottom: 20px;
+    overflow: no-display;
 }
 .navbar {
     margin-bottom: 20px;
@@ -61,7 +62,7 @@ label {
 }
 .table-cell-darkgrey {
     background-color: #797a7e;
-    color: black;
+    color: white;
 }
 .table-cell-grey {
     background-color: #d8d3cd;
@@ -76,7 +77,9 @@ label {
     color: black;
 }
 .table-cell-selected {
-    filter: brightness(75%);
+    filter: brightness(96%);
+    border: 2px solid purple !important;
+    border-collapse: collapse !important;
 }
 .house-icon {
     width: 25px;
@@ -84,5 +87,57 @@ label {
 
 .addmaterialAlignment{
     margin-top: 3px;
+}
+table {
+    display: table !important;
+}
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    margin-bottom: 556px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card-inner input {
+    margin: 0 auto;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flipped {
+    transform: rotateY(180deg);
+    z-index: 9999;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    color: white;
+    transform: rotateY(180deg);
 }
 

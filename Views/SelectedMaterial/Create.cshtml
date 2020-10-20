@@ -6,13 +6,13 @@
 <table class="table table-hover table-responsive table-bordered ">
     
     <tbody>
-        @foreach (Material material in ViewBag.SelectedMaterials)
+        @for (int i = 0; i < ViewBag.MaterialCount; i++)
         {
             <tr>
                 <th scope="row">
-                    @if (ViewBag.SelectedMaterials.Count > 0)
+                    @if (ViewBag.MaterialCount > 0)
                     {
-                        Write(material.ObjectLiveAreaFunction);
+                        Write(ViewBag.LinearMaterials[i].ObjectLiveAreaFunction);
                     }
                     else
                     {
@@ -20,19 +20,43 @@
                     }
                 </th>
 
-                <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                <td class="@if (ViewBag.LinearMaterials[i].EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
+                           else if (ViewBag.LinearMaterials[i].EmbodiedCO2 > 0.9999f && ViewBag.LinearMaterials[i].EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} 
+                           else if (ViewBag.LinearMaterials[i].EmbodiedCO2 > 1.9999f && ViewBag.LinearMaterials[i].EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
+                           else if (ViewBag.LinearMaterials[i].EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
                     <label class="row">
-                        <div class="col-2">
-                            <img src="https://via.placeholder.com/100" />
+                        <div class="col-1">
+                            <img src="https://picsum.photos/100" />
                         </div>
                         <div class="col-10">
-                            <p>@material.MaterialName</p>
-                            <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                            <p>@ViewBag.LinearMaterials[i].MaterialName</p>
+                            <p>CO2: @ViewBag.LinearMaterials[i].EmbodiedCO2 kg CO₂ / kg</p>
                             <p>PCI: 0.02</p>
                         </div>
                     </label>
                 </td>
-
+                @foreach (Material Material in ViewBag.SelectedMaterials)
+                {
+                    if (Material.ObjectLiveAreaFunction == ViewBag.linearMaterials[i].ObjectLiveAreaFunction)
+                    {
+                        <td class="@if ( Material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
+                                   else if ( Material.EmbodiedCO2 > 0.9999f &&  ViewBag.SelectedMaterials[i].EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} 
+                                   else if ( Material.EmbodiedCO2 > 1.9999f &&  ViewBag.SelectedMaterials[i].EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
+                                   else if ( Material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                            <label class="row">
+                                <div class="col-2">
+                                    <img src="https://picsum.photos/100" />
+                                </div>
+                                <div class="col-10">
+                                    <p>@Material.MaterialName</p>
+                                    <p>CO2: @Material.EmbodiedCO2 kg CO₂ / kg</p>
+                                    <p>PCI: 0.02</p>
+                                </div>
+                            </label>
+                        </td>
+                    }
+                }
+                
             </tr>
         }
 

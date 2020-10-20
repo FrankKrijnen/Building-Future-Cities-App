@@ -54,9 +54,26 @@ namespace BuildingFutureCitiesApp.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
 
                     List<Material> MaterialList = JsonConvert.DeserializeObject<List<Material>>(responseString);
-                    
-                 
+                   
+                    List<Material> LinearMaterials = new List<Material>();
 
+                    //adds list of materials with highest embodied co2 per function
+                    MaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList();
+                    foreach (var material in MaterialList)
+                    {
+                        if (LinearMaterials.All(i => i.ObjectLiveAreaFunction != material.ObjectLiveAreaFunction))
+                        {
+                            LinearMaterials.Add(material);
+                        } else if (LinearMaterials.Count == 0)
+                        {
+                            LinearMaterials.Add(material);
+                        }
+                    }
+
+                    //used by for loop in view
+                    ViewBag.MaterialCount = LinearMaterials.Count;
+
+                    ViewBag.LinearMaterials = LinearMaterials;
 
                     //creates list of selected materials
                     List<Material> SelectedMaterials = new List<Material>();
@@ -72,7 +89,6 @@ namespace BuildingFutureCitiesApp.Controllers
                         
                         
                     }
-                    Console.WriteLine(SelectedMaterials[0]);
                     ViewBag.SelectedMaterials = SelectedMaterials;
                 }
             } return View();

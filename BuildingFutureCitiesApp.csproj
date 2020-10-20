@@ -293,7 +293,6 @@
     <Content Include="Views\Navigation\AddMaterial.cshtml" />
     <Content Include="Views\Navigation\RegisterProfile.cshtml" />
     <Content Include="Views\Navigation\Login.cshtml" />
-    <Content Include="Views\SelectedMaterial\Index.cshtml" />
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Navigation\LoginForm.cshtml" />
   </ItemGroup>

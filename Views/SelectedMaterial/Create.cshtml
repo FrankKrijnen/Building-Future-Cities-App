@@ -40,8 +40,8 @@
                     if (Material.ObjectLiveAreaFunction == ViewBag.linearMaterials[i].ObjectLiveAreaFunction)
                     {
                         <td class="@if ( Material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
-                                   else if ( Material.EmbodiedCO2 > 0.9999f &&  ViewBag.SelectedMaterials[i].EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} 
-                                   else if ( Material.EmbodiedCO2 > 1.9999f &&  ViewBag.SelectedMaterials[i].EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
+                                   else if ( Material.EmbodiedCO2 > 0.9999f &&  Material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} 
+                                   else if ( Material.EmbodiedCO2 > 1.9999f &&  Material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
                                    else if ( Material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
                             <label class="row">
                                 <div class="col-2">

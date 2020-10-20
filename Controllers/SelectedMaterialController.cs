@@ -58,7 +58,7 @@ namespace BuildingFutureCitiesApp.Controllers
                     List<Material> LinearMaterials = new List<Material>();
 
                     //adds list of materials with highest embodied co2 per function
-                    MaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList();
+                   MaterialList = MaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList();
                     foreach (var material in MaterialList)
                     {
                         if (LinearMaterials.All(i => i.ObjectLiveAreaFunction != material.ObjectLiveAreaFunction))

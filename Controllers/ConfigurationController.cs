@@ -1,25 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using BuildingFutureCitiesApp.Models;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
     public class ConfigurationController : Controller
     {
-        // GET: Configuration
-        public ActionResult Index()
+        private ConfigurationClass configurationClass;
+        public void Constructor()
         {
-            return View();
+            configurationClass = new ConfigurationClass();
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+
+        public ConfigurationClass BuildConfiguration(List<Material> configuration)
         {
-            // Here's where you do stuff.
-
+            Constructor();
+            configurationClass.Configuration = configuration;
+            return configurationClass;
         }
-
 
 
 

@@ -7,8 +7,18 @@ namespace BuildingFutureCitiesApp.Models
 {
     public class ConfigurationClass
     {
-        
+
         //constructor
+        public ConfigurationClass()
+        {
+
+        }
+
+        public ConfigurationClass(List<Material> configuration)
+        {
+            Configuration = configuration;
+        }
+
         public ConfigurationClass(string roomName, double currentConceptSCI, int currentConceptCO2, double newConceptSCI, int newConceptCO2)
         {
             RoomName = roomName;
@@ -20,6 +30,7 @@ namespace BuildingFutureCitiesApp.Models
 
         //properties
         public string RoomName;
+        public List<Material> Configuration;
 
         //current concept
         public double CurrentConceptSCI;

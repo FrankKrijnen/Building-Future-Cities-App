@@ -74,7 +74,8 @@ namespace BuildingFutureCitiesApp.Controllers
                     }
                     Console.WriteLine(SelectedMaterials[0]);
                     ViewBag.SelectedMaterials = SelectedMaterials;
-
+                    ConfigurationController configurationController = new ConfigurationController();
+                    configurationController.BuildConfiguration(SelectedMaterials);
 
                     //        //Bathroom list with all sorted material rows 
                     //        List<List<Material>> BathroomRowList = new List<List<Material>>();

@@ -1,16 +1,24 @@
 ﻿@using BuildingFutureCitiesApp.Models
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-
-<h2>Create</h2>
+<div class="row" style="text-align: center;">
+    <div class="col-md-12">
+        <h1>Configuratie</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 border-bottom">
+        <h3>Overzicht</h3>
+        <p>Sla de configuratie op of ga terug naar het selectie scherm.</p>
+    </div>
+</div>
+<br />
 <table class="table table-hover table-responsive table-bordered ">
 
     <tbody>
         @foreach (Material material in ViewBag.SelectedMaterials)
         {
-        <tr>
-            <th scope="row">
-                @if (ViewBag.SelectedMaterials.Count > 0)
+            <tr>
+                <th scope="row">
+                    @if (ViewBag.SelectedMaterials.Count > 0)
                     {
                         Write(material.ObjectLiveAreaFunction);
                     }
@@ -18,35 +26,34 @@
                     {
                         Write("No items found");
                     }
-            </th>
+                </th>
 
-            <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
-                <label class="row">
-                    <div class="col-2">
-                        <img src="https://via.placeholder.com/100" />
-                    </div>
-                    <div class="col-10">
-                        <p>@material.MaterialName</p>
-                        <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
-                        <p>PCI: 0.02</p>
-                    </div>
-                </label>
-            </td>
+                <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");} else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
+                    <label class="row">
+                        <div class="col-2">
+                            <img src="https://via.placeholder.com/100" />
+                        </div>
+                        <div class="col-10">
+                            <p>@material.MaterialName</p>
+                            <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                            <p>PCI: 0.02</p>
+                        </div>
+                    </label>
+                </td>
 
-        </tr>
+            </tr>
         }
 
     </tbody>
 </table>
 
-<button class="btn btn-secondary" onclick="history.go(-1);">Terug</button>
+<button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/Bathroom/Index';">Terug</button>
 
-<form>
+<form style="float: right;">
     @foreach (Material material in ViewBag.SelectedMaterials)
     {
-    <input type="hidden" name="material_id" value="@material.Id" />
+        <input type="hidden" name="material_id" value="@material.Id" />
     }
-    <label>Omschrijving/titel</label>
-    <input name="description" required/>
+    <input name="description" placeholder="Omschrijving" required="" />
     <input class="btn btn-primary" type="submit" value="Opslaan" formaction="http://localhost:5000/api/configuration/SetConfiguration" formmethod="POST" />
 </form>

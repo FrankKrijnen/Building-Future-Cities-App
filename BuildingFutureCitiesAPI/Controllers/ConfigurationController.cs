@@ -27,16 +27,16 @@ namespace BuildingFutureCitiesAPI.Controllers
         [HttpPost("SetConfiguration")]
         public void SetConfiguration([FromForm] int[] material_id, [FromForm] string description)
         {
-            this.Constructor();
+            Constructor();
            
             //1 keer uitvoeren voor setup
             string qry =
-                "INSERT INTO `configuration` (`id`, `description`, `room`, `profile_id`) VALUES (NULL, '"+ @description +"', 'badkamer', '1');";
+                "INSERT INTO `configuration` (`id`, `description`, `room`) VALUES (NULL, '"+ @description +"', 'Badkamer');";
             configurationDataModel.SetConfiguration(qry);
             
             //krijg id terug van net gemaakte configuratie
-            string qry2 = "SELECT id FROM `configuration` WHERE description = '" + @description + "' AND room = 'badkamer'";
-            int configurationId = configurationDataModel.GetConfiguration(qry2);
+            string qry2 = "SELECT id FROM `configuration` WHERE description = '" + @description + "' AND room = 'Badkamer'";
+            int configurationId = configurationDataModel.GetConfigurationId(qry2);
 
             //meerdere keren uitvoeren 
             string partOfQry3 = string.Empty;
@@ -58,6 +58,13 @@ namespace BuildingFutureCitiesAPI.Controllers
 
             Response.Redirect("https://localhost:44355/Navigation/Configuration");
         }
-        
+
+        // POST api/<ConfigurationController>
+        [HttpPost("GetConfiguration")]
+        public void GetConfigurationForProfile([FromForm] int profile_id)
+        {
+            
+        }
+
     }
 }

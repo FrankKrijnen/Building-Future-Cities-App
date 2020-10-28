@@ -53,7 +53,7 @@ namespace BuildingFutureCitiesAPI.Controllers
             if (profile.Email == null)
             {
                 Response.Cookies.Append("account_not_found", "true");
-                return Redirect("https://localhost:44355/Navigation/Login");
+                return Redirect("https://localhost:44355/Login/Login");
             }
 
             //Models.Profile.Email.**get** returned null.

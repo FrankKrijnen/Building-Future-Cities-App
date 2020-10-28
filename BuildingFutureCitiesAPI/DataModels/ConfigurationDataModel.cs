@@ -31,7 +31,7 @@ namespace BuildingFutureCitiesAPI.DataModels
             GetDatabaseConnection().Connection.Close();
         }
 
-        public int GetConfiguration(string qry)
+        public int GetConfigurationId(string qry)
         {
             int configurationId = new Int32();
 
@@ -57,12 +57,45 @@ namespace BuildingFutureCitiesAPI.DataModels
                 }
                 catch (Exception e)
                 {
-                    SetErrorMsg(e.Message.ToString());
+                    SetErrorMsg(e.Message);
                 }
 
             }
 
             return configurationId;
+        }
+        public List<ConfigurationClass> GetProfileConfiguration(string qry)
+        {
+            List<ConfigurationClass> configurationList = new List<ConfigurationClass>();
+
+            using (MySqlCommand preparedQry = GetDatabaseConnection().PrepareSql(qry))
+            {
+
+                try
+                {
+                    if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                    {
+                        GetDatabaseConnection().Connection.Open();
+                    }
+
+                    using (MySqlDataReader reader = preparedQry.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            configurationList.Add(new ConfigurationClass());
+                        }
+                    }
+                    GetDatabaseConnection().Connection.Close();
+                }
+                catch (Exception e)
+                {
+                    SetErrorMsg(e.Message.ToString());
+                }
+
+            }
+
+            return configurationList;
         }
     }
 }

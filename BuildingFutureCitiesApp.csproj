@@ -280,7 +280,7 @@
     <Content Include="Views\Bathroom\Index.cshtml" />
     <Content Include="Views\Navigation\Bedroom.cshtml" />
     <Content Include="Views\Navigation\Profile.cshtml" />
-    <Content Include="Views\Configuration\Configuration.cshtml" />
+    <Content Include="Views\Configuration\Overview.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />

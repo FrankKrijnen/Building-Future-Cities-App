@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using BuildingFutureCitiesApp.Models;
+using Newtonsoft.Json;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
@@ -18,23 +20,23 @@ namespace BuildingFutureCitiesApp.Controllers
         }
 
 
-        public ConfigurationClass BuildConfiguration(List<Material> configuration)
-        {
-            Constructor();
-            configurationClass.Configuration = configuration;
-            return configurationClass;
-        }
-
-        public ActionResult Configuration()
+        public ActionResult Overview()
         {
             ViewBag.Title = "Configuratie overzicht";
 
             ConfigurationList = new List<ConfigurationClass>();
-            ConfigurationList.Add(new ConfigurationClass("Woonkamer 1", 0.86, 634, 0.94, 239));
-            ConfigurationList.Add(new ConfigurationClass("Keuken 1", 0.86, 634, 0.94, 239));
-            ConfigurationList.Add(new ConfigurationClass("Badkamer 1", 0.86, 634, 0.94, 239));
-            ConfigurationList.Add(new ConfigurationClass("Slaapkamer 1", 0.86, 634, 0.94, 239));
-            ConfigurationList.Add(new ConfigurationClass("Woonkamer 2", 0.86, 634, 0.94, 239));
+
+            int profileId = Convert.ToInt32(Request.Cookies["id"].Value);
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync("http://localhost:5000/api/configuration/GetConfiguration/"+ profileId + "").Result.Content.ReadAsStringAsync().Result;
+
+                List<ConfigurationClass> JsonConfigurationList = JsonConvert.DeserializeObject<List<ConfigurationClass>>(response);
+                ConfigurationList = JsonConfigurationList;
+
+            }
+            
+            
 
             ViewBag.ConfigurationList = ConfigurationList;
 

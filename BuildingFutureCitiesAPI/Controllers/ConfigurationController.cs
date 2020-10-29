@@ -52,18 +52,29 @@ namespace BuildingFutureCitiesAPI.Controllers
                 partOfQry3 += "(NULL, '"+ @configurationId + "', '"+ materialId + "'),";
                 materialIdIndex--;
             }
+            //opslaan per profiel
             string qry3 =
                 "INSERT INTO `configuration_material` (`id`, `configuration_id`, `material_id`) VALUES" + partOfQry3 + ";";
-            configurationDataModel.SetConfiguration(qry3);
+            string qry4 =
+                "INSERT INTO `configuration_profile` (`configuration_id`, `profile_id`) VALUES (" + configurationId + "," + Request.Cookies["id"] + ");";
+            configurationDataModel.SetConfiguration(qry3 + qry4);
 
-            Response.Redirect("https://localhost:44355/Navigation/Configuration");
+
+            Response.Redirect("https://localhost:44355/Configuration/Overview");
         }
 
-        // POST api/<ConfigurationController>
-        [HttpPost("GetConfiguration")]
-        public void GetConfigurationForProfile([FromForm] int profile_id)
+        // GET api/<ConfigurationController>
+        [HttpGet("GetConfiguration/{profileId}")]
+        public List<ConfigurationClass> GetConfigurationForProfile(int profileId)
         {
-            
+            Constructor();
+            string qry =
+                "SELECT * FROM configuration JOIN configuration_profile ON configuration_profile.configuration_id = configuration.id WHERE profile_id = "+ profileId + " ";
+            List<ConfigurationClass> profileConfigurations = new List<ConfigurationClass>();
+            profileConfigurations = configurationDataModel.GetProfileConfiguration(qry);
+
+            return profileConfigurations;
+
         }
 
     }

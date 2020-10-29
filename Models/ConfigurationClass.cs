@@ -11,34 +11,24 @@ namespace BuildingFutureCitiesApp.Models
 
         //properties
         public string RoomName;
-        public List<Material> Configuration;
+        public string ConfigName;
+        public List<Material> MaterialList;
 
-        //current concept
-        public double CurrentConceptSCI;
-        public int CurrentConceptCO2;
-
-        //new concept
-        public double NewConceptSCI;
-        public int NewConceptCO2;
-
-        //constructor
         public ConfigurationClass()
         {
-
+            MaterialList = new List<Material>();
         }
 
-        public ConfigurationClass(List<Material> configuration)
+        public ConfigurationClass(List<Material> materialList)
         {
-            Configuration = configuration;
+            MaterialList = materialList;
         }
 
-        public ConfigurationClass(string roomName, double currentConceptSCI, int currentConceptCO2, double newConceptSCI, int newConceptCO2)
+        public ConfigurationClass(string roomName, string configName, List<Material> materialList)
         {
             RoomName = roomName;
-            CurrentConceptSCI = currentConceptSCI;
-            CurrentConceptCO2 = currentConceptCO2;
-            NewConceptSCI = newConceptSCI;
-            NewConceptCO2 = newConceptCO2;
+            ConfigName = configName;
+            MaterialList = materialList;
         }
 
 

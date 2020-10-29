@@ -57,7 +57,7 @@ namespace BuildingFutureCitiesAPI.Controllers
             }
 
             //Models.Profile.Email.**get** returned null.
-
+            Response.Cookies.Append("id", profile.Id.ToString());
             Response.Cookies.Append("firstname", profile.FirstName);
             Response.Cookies.Append("lastname", profile.LastName);
             Response.Cookies.Append("email", profile.Email);

@@ -64,6 +64,8 @@ namespace BuildingFutureCitiesAPI.DataModels
 
             return configurationId;
         }
+
+
         public List<ConfigurationClass> GetProfileConfiguration(string qry)
         {
             List<ConfigurationClass> configurationList = new List<ConfigurationClass>();
@@ -83,7 +85,11 @@ namespace BuildingFutureCitiesAPI.DataModels
 
                         while (reader.Read())
                         {
-                            configurationList.Add(new ConfigurationClass());
+                            configurationList.Add(new ConfigurationClass(
+                                reader["room"].ToString()
+                                ,reader["description"].ToString()
+                                ,null
+                                ));
                         }
                     }
                     GetDatabaseConnection().Connection.Close();

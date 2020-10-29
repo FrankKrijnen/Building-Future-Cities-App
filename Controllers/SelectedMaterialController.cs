@@ -29,7 +29,7 @@ namespace BuildingFutureCitiesApp.Controllers
     [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            ViewBag.Title = "gekozen materialen";
+            ViewBag.Title = "Ciculaire variant";
 
             var IdList = new List<int>();
 
@@ -54,9 +54,26 @@ namespace BuildingFutureCitiesApp.Controllers
                     string responseString = responseContent.ReadAsStringAsync().Result;
 
                     List<Material> MaterialList = JsonConvert.DeserializeObject<List<Material>>(responseString);
-                    
-                 
+                   
+                    List<Material> LinearMaterials = new List<Material>();
 
+                    //adds list of materials with highest embodied co2 per function
+                   MaterialList = MaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList();
+                    foreach (var material in MaterialList)
+                    {
+                        if (LinearMaterials.All(i => i.ObjectLiveAreaFunction != material.ObjectLiveAreaFunction))
+                        {
+                            LinearMaterials.Add(material);
+                        } else if (LinearMaterials.Count == 0)
+                        {
+                            LinearMaterials.Add(material);
+                        }
+                    }
+
+                    //used by for loop in view
+                    ViewBag.MaterialCount = LinearMaterials.Count;
+
+                    ViewBag.LinearMaterials = LinearMaterials;
 
                     //creates list of selected materials
                     List<Material> SelectedMaterials = new List<Material>();
@@ -72,37 +89,9 @@ namespace BuildingFutureCitiesApp.Controllers
                         
                         
                     }
-                    Console.WriteLine(SelectedMaterials[0]);
                     ViewBag.SelectedMaterials = SelectedMaterials;
-                   
-
-                    //        //Bathroom list with all sorted material rows 
-                    //        List<List<Material>> BathroomRowList = new List<List<Material>>();
-
-                    //        if (MaterialList.Any())
-                    //        {
-                    //            ViewBag.MaterialList = MaterialList;
-                    //        }
-                    //        else
-                    //        {
-                    //            ViewBag.MaterialList = null;
-                    //        }
-
-
-                    //        BathroomRowList.Add(LightingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(VentilationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(HeatingMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(DryingCapacityMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(EnergyMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(HandWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(BodyWashMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(StorageMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-                    //        BathroomRowList.Add(SeparationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
-
-                    //        ViewBag.BathroomRowList = BathroomRowList;
                 }
-            }
-                    return View();
+            } return View();
         }
 
         

@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BathroomController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,7 +280,7 @@
     <Content Include="Views\Bathroom\Index.cshtml" />
     <Content Include="Views\Navigation\Bedroom.cshtml" />
     <Content Include="Views\Navigation\Profile.cshtml" />
-    <Content Include="Views\Navigation\Configuration.cshtml" />
+    <Content Include="Views\Configuration\Overview.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -291,18 +292,16 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Navigation\AddMaterial.cshtml" />
-    <Content Include="Views\Navigation\RegisterProfile.cshtml" />
-    <Content Include="Views\Navigation\Login.cshtml" />
+    <Content Include="Views\Login\RegisterProfile.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\SelectedMaterial\Index.cshtml" />
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
-    <Content Include="Views\Navigation\LoginForm.cshtml" />
+    <Content Include="Views\Login\LoginForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
-    <Folder Include="Views\Configuration\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Mat\" />
   </ItemGroup>
   <ItemGroup>

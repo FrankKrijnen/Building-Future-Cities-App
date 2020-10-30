@@ -2,6 +2,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: no-display;
+    font-family: 'Roboto', sans-serif !important;
 }
 .navbar {
     margin-bottom: 20px;
@@ -40,8 +41,7 @@
     }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+
 textarea {
     max-width: 280px;
 }
@@ -97,7 +97,7 @@ table {
 .flip-card {
     background-color: transparent;
     margin-bottom: 556px;
-    border: 1px solid #f1f1f1;
+    /*border: 1px solid #f1f1f1;*/
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -106,12 +106,11 @@ table {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 .flip-card-inner input {
-    margin: 0 auto;
+    
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -139,5 +138,17 @@ table {
 .flip-card-back {
     color: white;
     transform: rotateY(180deg);
+}
+
+.padder-20 {
+    padding: 20px;
+}
+.padder-10 {
+    padding: 10px;
+}
+
+
+.center-text{
+    text-align: center;
 }
 

@@ -7,19 +7,22 @@ namespace BuildingFutureCitiesAPI.Models
 {
     public class Profile
     {
-        //properties
+        public int Id { get; set; }
         public string FirstName { get; set;}
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        //constructor
         public Profile()
         {
-
+            Id = 0;
+            FirstName = null;
+            LastName = null;
+            Email = null;
         }
 
-        public Profile(string firstName, string lastName, string email)
+        public Profile(int id,string firstName, string lastName, string email)
         {
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Email = Email;

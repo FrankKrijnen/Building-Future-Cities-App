@@ -30,6 +30,7 @@ namespace BuildingFutureCitiesAPI.DataModels
 
                         while (reader.Read())
                         {
+                            profile.Id = Convert.ToInt32(reader["id"]);
                             profile.FirstName = reader["firstname"].ToString();
                             profile.LastName = reader["lastname"].ToString();
                             profile.Email = reader["email"].ToString();

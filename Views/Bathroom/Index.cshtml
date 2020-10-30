@@ -1,19 +1,37 @@
 ﻿@using BuildingFutureCitiesApp.Models
 
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
 
+<div class="jumbotron text-center alert-secondary">
+    <h2>Stel hier uw <span class="font-weight-bold">@ViewBag.Message</span> samen.</h2>
+</div>
+<div class="row sticky-top border border-dark center-text">
+
+    
+    <div class="table-cell-darkgrey col-3">
+        <p>Lineair</p>
+        <p>3kg of hoger</p>
+    </div>
+    <div class="table-cell-grey col-3">
+        <p>Low-Circulair</p>
+        <p>2kg-3kg</p>
+    </div>
+    <div class="table-cell-lightgrey col-3">
+        <p>Medium-Circulair</p>
+        <p>1kg-2kg</p>
+    </div>
+    <div class="table-cell-mint col-3">
+        <p>Circulair</p>
+        <p>1kg of lager</p>
+    </div>
+       
+    
+</div>
+<br />
 <form>
     <table class="table table-hover table-responsive table-bordered ">
-        <thead class="table-white">
-            <tr>
-                <th scope="col">Legenda <br /><br /><img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;Huidig Concept</th>
-                <th scope="col" class="table-cell-darkgrey"><p>Lineair</p></th>
-                <th scope="col" class="table-cell-grey"><p>Low-Circulair</p></th>
-                <th scope="col" class="table-cell-lightgrey"><p>Medium-Circulair</p></th>
-                <th scope="col" class="table-cell-mint"><p>Circulair</p></th>
-            </tr>
-        </thead>
+
+
+
         <tbody>
 
             @foreach (List<Material> rowMaterials in ViewBag.BathroomRowList)
@@ -33,7 +51,7 @@
                     @foreach (Material material in rowMaterials)
                     {
 
-                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
+                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");}
                                    else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");}
                                    else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");}
                                    else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
@@ -48,20 +66,20 @@
                                                           }"
                                        value="@material.Id"
                                        onclick="stateCheckInput()"
-                                       required="required"/>
+                                       required="required" />
                                 <img src="https://picsum.photos/100" />
                                 <p>
-                                    <p>@material.MaterialName</p>
-                                    <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
-                                    <p>PCI: 0.02</p>
+                                <p>@material.MaterialName</p>
+                                <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                                <p>PCI: 0.02</p>
 
                                 </p>
                             </label>
                         </td>
-                       
+
                     }
                 </tr>
-                
+
             }
 
         </tbody>
@@ -69,7 +87,7 @@
 
 
     <table class="table table-hover table-bordered" style="width: 50%;">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <td>TOTALEN</td>
                 <td>SCI</td>
@@ -78,22 +96,29 @@
         </thead>
         <tbody>
             <tr>
-                <td>Huidig Concept</td>
+                <td>Lineaire variant</td>
                 <td>0.86</td>
                 <td>634kg CO2 equiv</td>
             </tr>
             <tr>
-                <td>Nieuw Concept</td>
+                <td>Circulaire variant</td>
                 <td>0.94</td>
                 <td>239kg CO2 equiv</td>
             </tr>
         </tbody>
     </table>
-
-    <button class="btn btn-primary" formaction="https://localhost:44355/SelectedMaterial/create" formmethod="post">Bevestig keuze</button>
-    <br />
-    <br />
-
+    <button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/';">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
+        </svg>Terug
+    </button>
+    <button class="btn btn-primary" style="float: right;" formaction="https://localhost:44355/SelectedMaterial/create" formmethod="post">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+            <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
+            <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        </svg>Bevestig keuze
+    </button>
 </form>
 
 

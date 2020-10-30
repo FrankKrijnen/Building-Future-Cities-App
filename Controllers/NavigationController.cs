@@ -73,7 +73,7 @@ namespace BuildingFutureCitiesApp.Controllers
         public ActionResult AddMaterial()
         {
             ViewBag.Message = "Hier kunt u een materiaal toevoegen aan de database.";
-            ViewBag.Title = "Voeg materiaal toe";
+            ViewBag.Title = "Voeg een nieuw materiaal toe.";
             if (IsLoggedIn())
             {
                 return View();

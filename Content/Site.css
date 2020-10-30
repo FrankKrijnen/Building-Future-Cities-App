@@ -2,6 +2,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: no-display;
+    font-family: 'Roboto', sans-serif !important;
 }
 .navbar {
     margin-bottom: 20px;
@@ -40,8 +41,7 @@
     }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+
 textarea {
     max-width: 280px;
 }
@@ -138,5 +138,17 @@ table {
 .flip-card-back {
     color: white;
     transform: rotateY(180deg);
+}
+
+.padder-20 {
+    padding: 20px;
+}
+.padder-10 {
+    padding: 10px;
+}
+
+
+.center-text{
+    text-align: center;
 }
 

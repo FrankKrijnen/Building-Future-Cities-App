@@ -1,156 +1,126 @@
-﻿<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div class="jumbotron text-center">
+<h2>@ViewBag.Title</h2>
+</div>
+<br />
+<form name="materiaal">
+    <div class="form-row">
+       
 
-
-<form name="materiaal";">
-    <div class="col-sm row">
-        <div class="col-sm-6">
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Product naam:</label>
-                <input class="col-sm" id="ProductName" name="productName" required="required"/>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Woningbouwdeel (Grof)</label>
-
-                <select class="col-sm" name="LiveArea" id="LiveArea">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="1" id="3">badkamer</option>
-                    <option value="2" id="1">Woonkamer</option>
-                    <option value="3" id="2">Keuken</option>
-                    <option value="4" id="4">Slaapkamer</option>
-                </select>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Woningbouwdeel (Functie)</label>
-                <select class="col-sm" name="ObjectLiveAreaFunction" id="ObjectLiveAreaFunction">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="1">Verlichting</option>
-                    <option value="2">Ventilatie</option>
-                    <option value="3">Verwarming</option>
-                    <option value="4">Droog capaciteit</option>
-                    <option value="5">Energie</option>
-                    <option value="6">Handwassen</option>
-                    <option value="7">Lichaamwassen</option>
-                    <option value="8">Opberging</option>
-                    <option value="9">Afscheiding</option>
-                </select>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Losmaakbaarheid:</label>
-
-                <select class="col-sm" name="Removability" id="Removability">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="1">0.0</option>
-                    <option value="2">0.1</option>
-                    <option value="3">0.2</option>
-                    <option value="4">0.3</option>
-                    <option value="5">0.4</option>
-                    <option value="6">0.5</option>
-                    <option value="7">0.6</option>
-                    <option value="8">0.7</option>
-                    <option value="9">0.8</option>
-                    <option value="10">0.9</option>
-                    <option value="11">1</option>
-                </select>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Oorsprong van materiaal:</label>
-
-                <select class="col-sm" name="MaterialOrigins" id="MaterialOrigins">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="1">Primair: nieuw materiaal (fosiele brandstof)</option>
-                    <option value="2">Primair: nieuw materiaal (Hergebruikte energie)</option>
-                    <option value="3">Primair: biobased materiaal</option>
-                    <option value="4">Secundair: extern materiaal</option>
-                    <option value="5">Secundair: lokaal materiaal</option>
-                </select>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Herkomst:</label>
-
-                <select class="col-sm" name="MaterialDistance" id="MaterialDistance">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option value="1">Niet-lokaal/onbekend</option>
-                    <option value="2">lokaal ('<'10km)</option>
-                    <option value="3">op afstand ('<'20km)</option>
-                    <option value="4">op afstand ('<'50km)</option>
-                    <option value="5">op afstand ('>'50km)</option>
-                </select>
-            </div>
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product naam:</label>
+            <input class="form-control"  id="ProductName" name="productName" required="required"/>
         </div>
-        <div class="col-sm-6">
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Eenheid (kg/m2/aantal):</label>
-                <input class="col-sm" id="Unit_Kg_M2_Amount" name="Unit_Kg_M2_Amount" type="number" required="required"/>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Omvattende energie (mj/kg):</label>
-                <input class="col-sm" id="EmbodiedEnergie" name="EmbodiedEnergie" type="number" required="required"/>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Omvattende CO2 (kg CO2/kg):</label>
-                <input class="col-sm" id="EmbodiedCO2" name="EmbodiedCO2" type="number" required="required"/>
-            </div>
-
-            <div class="row addmaterialAlignment">
-                <label class="col-sm-3">Levensduur:</label>
-                <input class="col-sm" id="LifeSpan" name="LifeSpan" type="number" required="required"/>
-            </div>
-            <button style="margin-left:47%; margin-top: 10%;" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">Save!</button>
+        <div class="form-group col-md-6">
+            <label for="Unit_Kg_M2_Amount" >Eenheid (kg/m2/aantal):</label>
+            <input class="form-control" id="Unit_Kg_M2_Amount" name="Unit_Kg_M2_Amount" type="number" required="required"/>
         </div>
 
     </div>
+    <div class="form-row">
+
+
+        <div class="form-group col-md-6">
+            <label for="MaterialOrigins">Oorsprong van materiaal:</label>
+
+            <select class="form-control" name="MaterialOrigins" id="MaterialOrigins">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">Primair: nieuw materiaal (fosiele brandstof)</option>
+                <option value="2">Primair: nieuw materiaal (Hergebruikte energie)</option>
+                <option value="3">Primair: biobased materiaal</option>
+                <option value="4">Secundair: extern materiaal</option>
+                <option value="5">Secundair: lokaal materiaal</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="MaterialDistance">Herkomst:</label>
+
+            <select class="form-control" name="MaterialDistance" id="MaterialDistance">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">Niet-lokaal/onbekend</option>
+                <option value="2">lokaal ('<'10km)</option>
+                <option value="3">op afstand ('<'20km)</option>
+                <option value="4">op afstand ('<'50km)</option>
+                <option value="5">op afstand ('>'50km)</option>
+            </select>
+        </div>
+        
+    </div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="LiveArea">Woningbouwdeel (Grof)</label>
+        <select class="form-control" name="LiveArea" id="LiveArea">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="1" id="3">badkamer</option>
+            <option value="2" id="1">Woonkamer</option>
+            <option value="3" id="2">Keuken</option>
+            <option value="4" id="4">Slaapkamer</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="ObjectLiveAreaFunction">Woningbouwdeel (Functie)</label>
+        <select class="form-control" name="ObjectLiveAreaFunction" id="ObjectLiveAreaFunction">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="1">Verlichting</option>
+            <option value="2">Ventilatie</option>
+            <option value="3">Verwarming</option>
+            <option value="4">Droog capaciteit</option>
+            <option value="5">Energie</option>
+            <option value="6">Handwassen</option>
+            <option value="7">Lichaamwassen</option>
+            <option value="8">Opberging</option>
+            <option value="9">Afscheiding</option>
+        </select>
+    </div>
+        
+    <div class="form-group col-md-4">
+        <label for="Removability">Losmaakbaarheid:</label>
+
+        <select class="form-control" name="Removability" id="Removability">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="1">0.0</option>
+            <option value="2">0.1</option>
+            <option value="3">0.2</option>
+            <option value="4">0.3</option>
+            <option value="5">0.4</option>
+            <option value="6">0.5</option>
+            <option value="7">0.6</option>
+            <option value="8">0.7</option>
+            <option value="9">0.8</option>
+            <option value="10">0.9</option>
+            <option value="11">1</option>
+        </select>
+    </div>
+</div>
+    <div class="form-row">
+            
+        <div class="form-group col-md-4">
+            <label for="EmbodiedEnergie">Omvattende energie (mj/kg):</label>
+            <input class="form-control" id="EmbodiedEnergie" name="EmbodiedEnergie" type="number" required="required"/>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="EmbodiedCO2">Omvattende CO2 (kg CO2/kg):</label>
+            <input class="form-control" id="EmbodiedCO2" name="EmbodiedCO2" type="number" required="required"/>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="LifeSpan">Levensduur:</label>
+            <input class="form-control" id="LifeSpan" name="LifeSpan" type="number" required="required"/>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary float-right" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+                    <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
+                    <path fill-rule="evenodd" d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                </svg> Opslaan
+            </button>
+        </div>
+        
+
+    </div>
+
 </form>
-
-
-@*<script>
-import { pagevisibility } from "modernizr";
-    //werkt niet meer!
-    function SaveMaterial() {
-        //TEST
-        var selectedItem = document.getElementById("LiveArea");
-        var optionText1 = selectedItem.options[selectedItem.selectedIndex].value;
-
-        var selectedItem = document.getElementById("MaterialOrigins");
-        var optionText2 = selectedItem.options[selectedItem.selectedIndex].value;
-
-        var selectedItem = document.getElementById("Removability");
-        var optionText3 = selectedItem.options[selectedItem.selectedIndex].value;
-
-        var selectedItem = document.getElementById("MaterialDistance");
-        var optionText4 = selectedItem.options[selectedItem.selectedIndex].value;
-
-        var productNameText = document.getElementById("ProductName").value;
-        var UnitText = document.getElementById("Unit_Kg_M2_Amount").value;
-        var EmodiedEnergieText = document.getElementById("EmbodiedEnergie").value;
-        var EmbodiedCO2Text = document.getElementById("EmbodiedCO2").value;
-        var LifeSpanText = document.getElementById("LifeSpan").value;
-        var ObjectLiveAreaFunctionText = document.getElementById("ObjectLiveAreaFunction").value;
-        var ErrorMessage = document.getElementById("ErrorCard");
-        var SuccesMessage = document.getElementById("SuccesCard");
-        if (productNameText == ""
-            || UnitText == ""
-            || EmodiedEnergieText == ""
-            || EmbodiedCO2Text == ""
-            || LifeSpanText == ""
-            || ObjectLiveAreaFunctionText == ""
-            || optionText1 == ""
-            || optionText2 == ""
-            || optionText3 == ""
-            || optionText4 == "") {
-            ErrorMessage.style.display = "block";
-            SuccesMessage.style.display = "none"
-        } else {
-            ErrorMessage.style.display = "none";
-            SuccesMessage.style.display = "block";
-        }
-</script>*@
 

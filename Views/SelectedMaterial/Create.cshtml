@@ -12,7 +12,27 @@
 </div>
 <br />
 <table class="table table-hover table-responsive table-bordered ">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align: center" class="alert alert-danger">
 
+                <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-arrow-left-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                </svg>
+                
+                Lineaire variant
+            </th>
+            <th style="text-align: center" class="alert alert-success">
+
+                <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-arrow-repeat" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                </svg>
+                Circulaire variant
+            </th>
+        </tr>
+    </thead>
     <tbody>
         @for (int i = 0; i < ViewBag.MaterialCount; i++)
         {
@@ -33,10 +53,10 @@
                            else if (ViewBag.LinearMaterials[i].EmbodiedCO2 > 1.9999f && ViewBag.LinearMaterials[i].EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
                            else if (ViewBag.LinearMaterials[i].EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
                     <label class="row">
-                        <div class="col-1">
+                        <div class="col-3">
                             <img src="https://picsum.photos/100" />
                         </div>
-                        <div class="col-10">
+                        <div class="col-9">
                             <p>@ViewBag.LinearMaterials[i].MaterialName</p>
                             <p>CO2: @ViewBag.LinearMaterials[i].EmbodiedCO2 kg CO₂ / kg</p>
                             <p>PCI: 0.02</p>
@@ -52,10 +72,10 @@
                                    else if ( Material.EmbodiedCO2 > 1.9999f &&  Material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");} 
                                    else if ( Material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
                             <label class="row">
-                                <div class="col-2">
+                                <div class="col-3">
                                     <img src="https://picsum.photos/100" />
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <p>@Material.MaterialName</p>
                                     <p>CO2: @Material.EmbodiedCO2 kg CO₂ / kg</p>
                                     <p>PCI: 0.02</p>

@@ -1,22 +1,27 @@
 ﻿
-@{
-    ViewBag.Title = "Configuration";
-}
+<div class="jumbotron text-center">
+    <h2>Configuratie overzicht</h2>
+</div>
 
-<h2>Configuratie overzicht</h2>
+
 
 <br />
 
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
 
     @foreach(var config in ViewBag.ConfigurationList)
     {
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h4 class="card-title">@config.RoomName</h4>
-                <h6 class="card-title">@config.ConfigName</h6>
+        <div class="padder-10">
+            <div class="card">
+                <div class="card-body">
+                    <img style="width: 100%" src="https://picsum.photos/300/100"/>
+                    <br/>
+                    <br/>
+                    <h4 class="card-title">@config.RoomName</h4>
+                    <h6 class="card-title">@config.ConfigName</h6>
+
+                </div>
             </div>
         </div>
     

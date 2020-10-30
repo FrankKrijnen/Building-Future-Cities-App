@@ -1,13 +1,9 @@
 ﻿@using System.Web.UI.WebControls
 
-@{
-    ViewBag.Title = "Profile";
-
+<div class="jumbotron text-center">
     
-}
-
-<h2 style="text-align: center;">Profiel van @ViewBag.firstletter.ToUpper(). @ViewBag.lastname</h2>
-
+<h2 >Profiel van <span class="font-weight-bold">@ViewBag.firstletter.ToUpper(). @ViewBag.lastname</span></h2>
+</div>
 <div class="row">
     <div class="col-md-12 border-bottom">
         <h4>Details</h4>
@@ -27,12 +23,5 @@
         <dt class="col-sm-3">Rol</dt>
         <dd class="col-sm-9">Beheerder</dd>
     </dl>
-    <div class="col-md-12 border-bottom">
-        <h5>Acties</h5>
-    </div>
-    <div class="col-md-12">
-        <br>
-        <button type="button" class="btn btn-primary" onclick="location.href = 'https://localhost:44355/Navigation/AddMaterial'">Toevoegen materiaal</button>
-        <button type="button" class="btn btn-secondary" onclick="location.href = 'https://localhost:44355/Configuration/Overview'">Configuratie overzicht</button>
-    </div>
+   
 </div>

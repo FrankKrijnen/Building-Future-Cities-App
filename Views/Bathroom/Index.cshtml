@@ -1,29 +1,37 @@
 ﻿@using BuildingFutureCitiesApp.Models
 
-<div class="row" style="text-align: center;">
-    <div class="col-md-12">
-        <h1>Badkamer</h1>
-    </div>
+
+<div class="jumbotron text-center ">
+    <h2>Stel hier uw <span class="font-weight-bold">@ViewBag.Message</span> samen.</h2>
 </div>
-<div class="row">
-    <div class="col-md-12 border-bottom">
-        <h3>Selecteer varianten!</h3>
-        <p>Stel de badkamer samen, door varianten te selecteren.</p>
+<div class="row sticky-top border border-dark center-text">
+
+    
+    <div class="table-cell-darkgrey col-3">
+        <p>Lineair</p>
+        <p>3kg of hoger</p>
     </div>
+    <div class="table-cell-grey col-3">
+        <p>Low-Circulair</p>
+        <p>2kg-3kg</p>
+    </div>
+    <div class="table-cell-lightgrey col-3">
+        <p>Medium-Circulair</p>
+        <p>1kg-2kg</p>
+    </div>
+    <div class="table-cell-mint col-3">
+        <p>Circulair</p>
+        <p>1kg of lager</p>
+    </div>
+       
+    
 </div>
-<br />
 <br />
 <form>
     <table class="table table-hover table-responsive table-bordered ">
-        <thead class="table-white">
-            <tr>
-                <th scope="col">Legenda <br /><br /><img class="house-icon" src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_home_48px-512.png" />&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;Huidig Concept</th>
-                <th scope="col" class="table-cell-darkgrey"><p>Lineair</p></th>
-                <th scope="col" class="table-cell-grey"><p>Low-Circulair</p></th>
-                <th scope="col" class="table-cell-lightgrey"><p>Medium-Circulair</p></th>
-                <th scope="col" class="table-cell-mint"><p>Circulair</p></th>
-            </tr>
-        </thead>
+        
+
+        
         <tbody>
 
             @foreach (List<Material> rowMaterials in ViewBag.BathroomRowList)
@@ -43,7 +51,7 @@
                     @foreach (Material material in rowMaterials)
                     {
 
-                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");} 
+                        <td class="@if (material.EmbodiedCO2 < 1.0f){Write("table-cell-mint");}
                                    else if (material.EmbodiedCO2 > 0.9999f && material.EmbodiedCO2 < 2.0f){Write("table-cell-lightgrey");}
                                    else if (material.EmbodiedCO2 > 1.9999f && material.EmbodiedCO2 < 3.0f){Write("table-cell-grey");}
                                    else if (material.EmbodiedCO2 > 2.9999f){Write("table-cell-darkgrey");}">
@@ -58,20 +66,20 @@
                                                           }"
                                        value="@material.Id"
                                        onclick="stateCheckInput()"
-                                       required="required"/>
+                                       required="required" />
                                 <img src="https://picsum.photos/100" />
                                 <p>
-                                    <p>@material.MaterialName</p>
-                                    <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
-                                    <p>PCI: 0.02</p>
+                                <p>@material.MaterialName</p>
+                                <p>CO2: @material.EmbodiedCO2 kg CO₂ / kg</p>
+                                <p>PCI: 0.02</p>
 
                                 </p>
                             </label>
                         </td>
-                       
+
                     }
                 </tr>
-                
+
             }
 
         </tbody>

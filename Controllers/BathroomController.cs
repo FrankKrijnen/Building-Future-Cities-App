@@ -20,7 +20,7 @@ namespace BuildingFutureCitiesApp.Controllers
         public async Task<ActionResult> Index()
         {
             ViewBag.Message = "Badkamer";
-            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
+            ViewBag.Title = "Stel hier uw " + ViewBag.Message + " samen";
 
             using (var client = new HttpClient())
             {

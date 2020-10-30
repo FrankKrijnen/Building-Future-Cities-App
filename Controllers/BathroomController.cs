@@ -13,7 +13,7 @@ using Renci.SshNet.Messages.Authentication;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
-    public class BathroomController : Controller
+    public class BathroomController : LoginController
     {
         List<Material> BathroomMaterialList;
         // GET: Bathroom
@@ -113,8 +113,14 @@ namespace BuildingFutureCitiesApp.Controllers
                 }
             }
 
-            
-            return View();
+            if (IsLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Navigation");
+            }
         }
 
         public async Task DoSomethingAsync()

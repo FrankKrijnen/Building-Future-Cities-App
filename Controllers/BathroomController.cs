@@ -13,14 +13,14 @@ using Renci.SshNet.Messages.Authentication;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
-    public class BathroomController : Controller
+    public class BathroomController : LoginController
     {
         List<Material> BathroomMaterialList;
         // GET: Bathroom
         public async Task<ActionResult> Index()
         {
             ViewBag.Message = "Badkamer";
-            ViewBag.Title = "Stel de " + ViewBag.Message + " samen";
+            ViewBag.Title = "Stel hier uw " + ViewBag.Message + " samen";
 
             using (var client = new HttpClient())
             {
@@ -113,8 +113,14 @@ namespace BuildingFutureCitiesApp.Controllers
                 }
             }
 
-            
-            return View();
+            if (IsLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Navigation");
+            }
         }
 
         public async Task DoSomethingAsync()

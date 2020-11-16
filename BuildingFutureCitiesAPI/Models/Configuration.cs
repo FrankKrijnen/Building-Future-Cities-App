@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BuildingFutureCitiesAPI.Models
 {
-    public class ConfigurationClass
+    public class Configuration
     {
 
         //properties
@@ -14,17 +14,17 @@ namespace BuildingFutureCitiesAPI.Models
         public string ConfigName;
         public List<Material> MaterialList;
 
-        public ConfigurationClass()
+        public Configuration()
         {
             MaterialList = new List<Material>();
         }
 
-        public ConfigurationClass(List<Material> materialList)
+        public Configuration(List<Material> materialList)
         {
             MaterialList = materialList;
         }
 
-        public ConfigurationClass(string roomName, string configName, List<Material> materialList)
+        public Configuration(string roomName, string configName, List<Material> materialList)
         {
             RoomName = roomName;
             ConfigName = configName;

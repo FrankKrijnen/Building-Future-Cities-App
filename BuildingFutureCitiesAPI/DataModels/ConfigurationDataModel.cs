@@ -66,9 +66,9 @@ namespace BuildingFutureCitiesAPI.DataModels
         }
 
 
-        public List<ConfigurationClass> GetProfileConfiguration(string qry)
+        public List<Configuration> GetProfileConfiguration(string qry)
         {
-            List<ConfigurationClass> configurationList = new List<ConfigurationClass>();
+            List<Configuration> configurationList = new List<Configuration>();
 
             using (MySqlCommand preparedQry = GetDatabaseConnection().PrepareSql(qry))
             {
@@ -85,7 +85,7 @@ namespace BuildingFutureCitiesAPI.DataModels
 
                         while (reader.Read())
                         {
-                            configurationList.Add(new ConfigurationClass(
+                            configurationList.Add(new Configuration(
                                 reader["room"].ToString()
                                 ,reader["description"].ToString()
                                 ,null

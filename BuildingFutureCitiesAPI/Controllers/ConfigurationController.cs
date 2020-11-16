@@ -28,12 +28,12 @@ namespace BuildingFutureCitiesAPI.Controllers
         public void SetConfiguration([FromForm] int[] material_id, [FromForm] string description)
         {
             Constructor();
-           
+
             //1 keer uitvoeren voor setup
             string qry =
-                "INSERT INTO `configuration` (`id`, `description`, `room`) VALUES (NULL, '"+ @description +"', 'Badkamer');";
+                "INSERT INTO `configuration` (`id`, `description`, `room`) VALUES (NULL, '" + @description + "', 'Badkamer');";
             configurationDataModel.SetConfiguration(qry);
-            
+
             //krijg id terug van net gemaakte configuratie
             string qry2 = "SELECT id FROM `configuration` WHERE description = '" + @description + "' AND room = 'Badkamer'";
             int configurationId = configurationDataModel.GetConfigurationId(qry2);
@@ -49,7 +49,7 @@ namespace BuildingFutureCitiesAPI.Controllers
                     partOfQry3 += "(NULL, '" + @configurationId + "', '" + materialId + "')";
                     break;
                 }
-                partOfQry3 += "(NULL, '"+ @configurationId + "', '"+ materialId + "'),";
+                partOfQry3 += "(NULL, '" + @configurationId + "', '" + materialId + "'),";
                 materialIdIndex--;
             }
             //opslaan per profiel
@@ -65,16 +65,28 @@ namespace BuildingFutureCitiesAPI.Controllers
 
         // GET api/<ConfigurationController>
         [HttpGet("GetConfiguration/{profileId}")]
-        public List<ConfigurationClass> GetConfigurationForProfile(int profileId)
+        public List<Configuration> GetConfigurationForProfile(int profileId)
         {
             Constructor();
             string qry =
-                "SELECT * FROM configuration JOIN configuration_profile ON configuration_profile.configuration_id = configuration.id WHERE profile_id = "+ profileId + " ";
-            List<ConfigurationClass> profileConfigurations = new List<ConfigurationClass>();
+                "SELECT * FROM configuration JOIN configuration_profile ON configuration_profile.configuration_id = configuration.id WHERE profile_id = " + profileId + " ";
+            List<Configuration> profileConfigurations = new List<Configuration>();
             profileConfigurations = configurationDataModel.GetProfileConfiguration(qry);
 
             return profileConfigurations;
 
+        }
+
+        public Configuration GetConfiguration(int configurationId)
+        {
+            Constructor();
+            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + configurationId + "";
+
+
+            Configuration configuration = new Configuration();
+
+
+            return configuration;
         }
 
     }

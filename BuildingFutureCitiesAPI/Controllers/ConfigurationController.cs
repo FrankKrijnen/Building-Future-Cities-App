@@ -77,16 +77,17 @@ namespace BuildingFutureCitiesAPI.Controllers
 
         }
 
-        public Configuration GetConfiguration(int configurationId)
+        [HttpGet("GetMaterials")]
+        public ActionResult GetConfiguration(int configurationId)
         {
             Constructor();
-            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + configurationId + "";
-
-
+            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + 11 + "";
             Configuration configuration = new Configuration();
 
+            List<int> _ids = configurationDataModel.GetmaterialIds(qryGetMaterialsInConfigurationAmount);
+            
 
-            return configuration;
+           return Redirect("https://localhost:44355/bathroom/index");
         }
 
     }

@@ -87,8 +87,8 @@ namespace BuildingFutureCitiesAPI.DataModels
                         {
                             configurationList.Add(new Configuration(
                                 reader["room"].ToString()
-                                ,reader["description"].ToString()
-                                ,null
+                                , reader["description"].ToString()
+                                , null
                                 ));
                         }
                     }
@@ -102,6 +102,36 @@ namespace BuildingFutureCitiesAPI.DataModels
             }
 
             return configurationList;
+        }
+
+        public List<int> GetmaterialIds(string qry)
+        {
+            List<int> _ids = new List<int>();
+            using (MySqlCommand preparedQry = GetDatabaseConnection().PrepareSql(qry))
+            {
+                try
+                {
+                    if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                    {
+                        GetDatabaseConnection().Connection.Open();
+                    }
+                    using (MySqlDataReader reader = preparedQry.ExecuteReader())
+                    {
+                        Console.WriteLine(reader);
+                        while (reader.Read())
+                        {
+                            _ids.Add((int)reader["material_id"]);
+                        }
+                    }
+                    GetDatabaseConnection().Connection.Close();
+                }
+                catch (Exception e)
+                {
+                    SetErrorMsg(e.Message.ToString());
+                }
+
+            }
+            return _ids;
         }
     }
 }

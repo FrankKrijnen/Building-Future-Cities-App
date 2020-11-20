@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BathroomController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\ImportMaterialController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
@@ -297,6 +298,7 @@
     <Content Include="Views\SelectedMaterial\Index.cshtml" />
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Login\LoginForm.cshtml" />
+    <Content Include="Views\ImportMaterial\CSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

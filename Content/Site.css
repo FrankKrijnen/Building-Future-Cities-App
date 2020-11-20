@@ -148,7 +148,19 @@ table {
 }
 
 
+
+
+.marginner-horizontal-10 {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
 .center-text{
     text-align: center;
 }
 
+.input-csv-files {
+    margin-top: 10px ;
+    padding: 0px ;
+}

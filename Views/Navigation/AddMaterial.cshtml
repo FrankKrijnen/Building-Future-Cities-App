@@ -5,15 +5,15 @@
 <br />
 <form name="materiaal">
     <div class="form-row">
-       
+
 
         <div class="form-group col-md-6">
             <label for="ProductName">Product naam:</label>
-            <input class="form-control"  id="ProductName" name="productName" required="required"/>
+            <input class="form-control" id="ProductName" name="productName" required="required" />
         </div>
         <div class="form-group col-md-6">
-            <label for="Unit_Kg_M2_Amount" >Eenheid (kg/m2/aantal):</label>
-            <input class="form-control" id="Unit_Kg_M2_Amount" name="Unit_Kg_M2_Amount" type="number" required="required"/>
+            <label for="Unit_Kg_M2_Amount">Eenheid (kg/m2/aantal):</label>
+            <input class="form-control" id="Unit_Kg_M2_Amount" name="Unit_Kg_M2_Amount" type="number" required="required" />
         </div>
 
     </div>
@@ -45,88 +45,115 @@
                 <option value="5">op afstand ('>'50km)</option>
             </select>
         </div>
-        
+
     </div>
-<div class="form-row">
-    <div class="form-group col-md-4">
-        <label for="LiveArea">Woningbouwdeel (Grof)</label>
-        <select class="form-control" name="LiveArea" id="LiveArea">
-            <option disabled selected value> -- select an option -- </option>
-            <option value="1" id="3">badkamer</option>
-            <option value="2" id="1">Woonkamer</option>
-            <option value="3" id="2">Keuken</option>
-            <option value="4" id="4">Slaapkamer</option>
-        </select>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="LiveArea">Woningbouwdeel (Grof)</label>
+            <select class="form-control" name="LiveArea" id="LiveArea">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1" id="3">badkamer</option>
+                <option value="2" id="1">Woonkamer</option>
+                <option value="3" id="2">Keuken</option>
+                <option value="4" id="4">Slaapkamer</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="ObjectLiveAreaFunction">Woningbouwdeel (Functie)</label>
+            <select class="form-control" name="ObjectLiveAreaFunction" id="ObjectLiveAreaFunction">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">Verlichting</option>
+                <option value="2">Ventilatie</option>
+                <option value="3">Verwarming</option>
+                <option value="4">Droog capaciteit</option>
+                <option value="5">Energie</option>
+                <option value="6">Handwassen</option>
+                <option value="7">Lichaamwassen</option>
+                <option value="8">Opberging</option>
+                <option value="9">Afscheiding</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="Removability">Losmaakbaarheid:</label>
+
+            <select class="form-control" name="Removability" id="Removability">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">0.0</option>
+                <option value="2">0.1</option>
+                <option value="3">0.2</option>
+                <option value="4">0.3</option>
+                <option value="5">0.4</option>
+                <option value="6">0.5</option>
+                <option value="7">0.6</option>
+                <option value="8">0.7</option>
+                <option value="9">0.8</option>
+                <option value="10">0.9</option>
+                <option value="11">1</option>
+            </select>
+        </div>
     </div>
 
-    <div class="form-group col-md-4">
-        <label for="ObjectLiveAreaFunction">Woningbouwdeel (Functie)</label>
-        <select class="form-control" name="ObjectLiveAreaFunction" id="ObjectLiveAreaFunction">
-            <option disabled selected value> -- select an option -- </option>
-            <option value="1">Verlichting</option>
-            <option value="2">Ventilatie</option>
-            <option value="3">Verwarming</option>
-            <option value="4">Droog capaciteit</option>
-            <option value="5">Energie</option>
-            <option value="6">Handwassen</option>
-            <option value="7">Lichaamwassen</option>
-            <option value="8">Opberging</option>
-            <option value="9">Afscheiding</option>
-        </select>
-    </div>
-        
-    <div class="form-group col-md-4">
-        <label for="Removability">Losmaakbaarheid:</label>
 
-        <select class="form-control" name="Removability" id="Removability">
-            <option disabled selected value> -- select an option -- </option>
-            <option value="1">0.0</option>
-            <option value="2">0.1</option>
-            <option value="3">0.2</option>
-            <option value="4">0.3</option>
-            <option value="5">0.4</option>
-            <option value="6">0.5</option>
-            <option value="7">0.6</option>
-            <option value="8">0.7</option>
-            <option value="9">0.8</option>
-            <option value="10">0.9</option>
-            <option value="11">1</option>
-        </select>
-    </div>
-</div>
-<div class="form-row">
+    <div class="form-row">
 
-    <div class="form-group col-md-4">
-        <label for="EmbodiedEnergie">Omvattende energie (mj/kg):</label>
-        <input class="form-control" id="EmbodiedEnergie" name="EmbodiedEnergie" type="number" required="required" />
-    </div>
+        <div class="form-group col-md-4">
+            <label for="EmbodiedEnergie">Omvattende energie (mj/kg):</label>
+            <input class="form-control" id="EmbodiedEnergie" name="EmbodiedEnergie" type="number" required="required" />
+        </div>
 
-    <div class="form-group col-md-4">
-        <label for="EmbodiedCO2">Omvattende CO2 (kg CO2/kg):</label>
-        <input class="form-control" id="EmbodiedCO2" name="EmbodiedCO2" type="number" required="required" />
-    </div>
+        <div class="form-group col-md-4">
+            <label for="EmbodiedCO2">Omvattende CO2 (kg CO2/kg):</label>
+            <input class="form-control" id="EmbodiedCO2" name="EmbodiedCO2" type="number" required="required" />
+        </div>
 
-    <div class="form-group col-md-4">
-        <label for="LifeSpan">Levensduur:</label>
-        <input class="form-control" id="LifeSpan" name="LifeSpan" type="number" required="required" />
-    </div>
-    <div class="col-12">
-        <button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/';">
-            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
-            </svg>Terug
-        </button>
-        <button class="btn btn-primary float-right" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">
-            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
-                <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
-                <path fill-rule="evenodd" d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
-            </svg> Opslaan
-        </button>
-    </div>
+        <div class="form-group col-md-4">
+            <label for="LifeSpan">Levensduur:</label>
+            <input class="form-control" id="LifeSpan" name="LifeSpan" type="number" required="required" />
+        </div>
+        <div class="col-4">
+            
+        </div>
+        <div class="col-8">
+            <button class="btn btn-primary float-right" type="submit" formaction="http://localhost:5000/api/material" formmethod="post">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                    <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                    <path fill-rule="evenodd" d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+                </svg> Opslaan
+            </button>
 
-    
-</div>
-    
+        </div>
+
+    </div>
 </form>
+<form name="csv">
+    <div class="row" style="padding-top: 10px;">
+       
+        <div class="col-md-4 col-sm-6">
+            <button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/';">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
+                </svg>Terug
+            </button>
+            
+        </div>
+        <div class="col-md-8 col-sm-6">
+            <button class="btn btn-success float-right" type="submit" formmethod="post">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                    <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                    <path fill-rule="evenodd" d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+                </svg> Importeer CSV
+            </button>
+            <input class="input-csv-files float-right" lang="nl" type="file" id="fileLoader" name="csv-file" title="Load File" accept=".csv" />
 
+        </div>
+
+
+        
+        
+        
+    </div>
+</form>

@@ -128,7 +128,7 @@
 
     </div>
 </form>
-<form name="csv">
+<form name="csv" enctype="multipart/form-data">
     <div class="row" style="padding-top: 10px;">
        
         <div class="col-md-4 col-sm-6">
@@ -140,7 +140,7 @@
             
         </div>
         <div class="col-md-8 col-sm-6">
-            <button class="btn btn-success float-right" type="submit" formmethod="post">
+            <button class="btn btn-success float-right" type="submit" formmethod="post" formaction="https://localhost:44355/ImportMaterial/CSV">
                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
                     <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />

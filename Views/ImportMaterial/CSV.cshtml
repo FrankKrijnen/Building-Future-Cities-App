@@ -10,6 +10,53 @@
 <body>
 <div>
     @ViewBag.ImportMessage
+    <table class="table table-dark" >
+        <tr>
+            <th>MaterialName</th>
+            <th>ObjectLiveAreaFunction</th>
+            <th>ObjectLiveAreaRoom</th>
+            <th>Image</th>
+            <th>ObjectLifeSpan</th>
+            <th>ObjectLiveAreaLocation</th>
+            <th>Removability</th>
+            <th>MaterialOrigins</th>
+            <th>MaterialDistance</th>
+            <th>MaterialDistance2</th>
+            <th>Unit_KG_M2_Amount</th>
+            <th>UnitType</th>
+            <th>EmbodiedEnergy</th>
+            <th>EmbodiedCO2</th>
+            <th>Reusability</th>
+            <th>SourceReusability</th>
+            <th>SourceEmbodiedEnergy</th>
+            <th>SourceComment</th>
+        </tr>
+        @foreach (var row in ViewBag.AllRows)
+        {
+    <tr class="hide-overflow-links">
+        <td>@row.MaterialName</td>
+        <td>@row.ObjectLiveAreaFunction</td>
+        <td>@row.ObjectLiveAreaRoom</td>
+        <td>@row.Image</td>
+        <td>@row.ObjectLifeSpan</td>
+        <td>@row.ObjectLiveAreaLocation</td>
+        <td>@row.Removability</td>
+        <td>@row.MaterialOrigins</td>
+        <td>@row.MaterialDistance</td>
+        <td>@row.MaterialDistance2</td>
+        <td>@row.Unit_KG_M2_Amount</td>
+        <td>@row.UnitType</td>
+        <td>@row.EmbodiedEnergy</td>
+        <td>@row.EmbodiedCO2</td>
+        <td>@row.Reusability</td>
+        <td>@row.SourceReusability</td>
+        <td>@row.SourceEmbodiedEnergy</td>
+        <td>@row.SourceComment</td>
+    </tr>
+        }
+
+    </table>
+    
 </div>
 </body>
 </html>

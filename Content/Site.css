@@ -165,3 +165,10 @@ table {
     padding: 0px ;
     overflow: hidden;
 }
+
+.hide-overflow-links > td {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

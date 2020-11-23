@@ -163,4 +163,5 @@ table {
 .input-csv-files {
     margin-top: 10px ;
     padding: 0px ;
+    overflow: hidden;
 }

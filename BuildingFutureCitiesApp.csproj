@@ -136,6 +136,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
+    <Compile Include="Controllers\SelectedMaterialUpdateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -297,6 +298,7 @@
     <Content Include="Views\SelectedMaterial\Index.cshtml" />
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Login\LoginForm.cshtml" />
+    <Content Include="Views\SelectedMaterialUpdate\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

@@ -86,10 +86,11 @@ namespace BuildingFutureCitiesAPI.DataModels
                         while (reader.Read())
                         {
                             configurationList.Add(new Configuration(
-                                reader["room"].ToString()
+                                (int)reader["configuration_id"]
+                                , reader["room"].ToString()
                                 , reader["description"].ToString()
                                 , null
-                                ));
+                                )) ;
                         }
                     }
                     GetDatabaseConnection().Connection.Close();

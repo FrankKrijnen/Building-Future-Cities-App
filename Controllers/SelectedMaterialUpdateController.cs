@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections;
+﻿using BuildingFutureCitiesApp.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using BuildingFutureCitiesApp.Models;
-using Newtonsoft.Json;
-using Renci.SshNet.Messages.Authentication;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
-    public class SelectedMaterialController : Controller
+    public class SelectedMaterialUpdateController : Controller
     {
-
-        // GET: SelectedMaterial
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // POST: SelectedMaterial/Create
+        // GET: SelectedMaterialUpdate
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Update(FormCollection collection)
         {
             SetUI(collection);
+            //int configId = Convert.ToInt32(Request.Cookies.Get("configuration_id").Value);
+
+            HttpCookie myCookie = Request.Cookies["configuration_id"];
+            if (!string.IsNullOrEmpty(myCookie.Values["configurationId"]))
+            {
+                int configurationId = Convert.ToInt32(myCookie.Values["configurationId"]);
+            }
             return View();
         }
 
@@ -97,7 +93,5 @@ namespace BuildingFutureCitiesApp.Controllers
                 }
             }
         }
-
-
     }
 }

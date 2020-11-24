@@ -74,21 +74,26 @@ namespace BuildingFutureCitiesAPI.Controllers
             profileConfigurations = configurationDataModel.GetProfileConfiguration(qry);
 
             return profileConfigurations;
-
         }
 
         [HttpGet("GetMaterials")]
-        public ActionResult GetConfiguration(int configurationId)
+        public List<int> GetConfiguration(int configurationId)
         {
             Constructor();
-            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + 11 + "";
+            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + configurationId + "";
             Configuration configuration = new Configuration();
 
             List<int> _ids = configurationDataModel.GetmaterialIds(qryGetMaterialsInConfigurationAmount);
-            
 
-           return Redirect("https://localhost:44355/bathroom/index");
+            return _ids;
         }
 
+        [HttpPost("UpdateConfiguration")]
+        public bool UpdateConfiguration(Configuration configuration)
+        {
+            Constructor();
+
+            return true;
+        }
     }
 }

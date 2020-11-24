@@ -10,6 +10,7 @@ namespace BuildingFutureCitiesApp.Models
     {
 
         //properties
+        public int configuration_id { get; set; }
         public string RoomName;
         public string ConfigName;
         public List<Material> MaterialList;

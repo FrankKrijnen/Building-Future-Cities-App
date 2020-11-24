@@ -14,7 +14,8 @@
                         <img style="width: 100%" src="https://picsum.photos/300/100" />
                         <br />
                         <br />
-                        <a onclick="location.href = 'https://localhost:44355/bathroom/index';"  class="card-title">@config.RoomName</a>
+                        <!--<a onclick="location.href = 'https://localhost:44355/bathroom/index?data=' + '1';" class="card-title">@config.RoomName</a>-->
+                        @Html.ActionLink("https://localhost:44355", "Index", "Bathroom", new { configId = config.configuration_id }, null);
                         <h6 class="card-title">@config.ConfigName</h6>
 
                     </div>

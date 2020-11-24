@@ -13,6 +13,7 @@ namespace BuildingFutureCitiesAPI.Models
         public string RoomName;
         public string ConfigName;
         public List<Material> MaterialList;
+        public int Configuration_id { get; set; }
 
         public Configuration()
         {
@@ -24,13 +25,12 @@ namespace BuildingFutureCitiesAPI.Models
             MaterialList = materialList;
         }
 
-        public Configuration(string roomName, string configName, List<Material> materialList)
+        public Configuration(int configuration_id ,string roomName, string configName, List<Material> materialList)
         {
+            Configuration_id = configuration_id;
             RoomName = roomName;
             ConfigName = configName;
             MaterialList = materialList;
         }
-
-
     }
 }

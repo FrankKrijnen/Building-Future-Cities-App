@@ -153,7 +153,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
-    <Compile Include="Models\CSVImportData.cs" />
+    <Compile Include="Models\CSVImportModels\CSVImportData.cs" />
+    <Compile Include="Models\CSVImportModels\Removability.cs" />
+    <Compile Include="Models\CSVImportModels\Distance.cs" />
+    <Compile Include="Models\CSVImportModels\Origin.cs" />
+    <Compile Include="Models\CSVImportModels\Function.cs" />
+    <Compile Include="Models\CSVImportModels\EstateObject.cs" />
+    <Compile Include="Models\CSVImportModels\EstateArea.cs" />
+    <Compile Include="Models\CSVImportModels\LinkTable.cs" />
     <Compile Include="Models\LoginValidation.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Profile.cs" />

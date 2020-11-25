@@ -149,7 +149,6 @@ table {
 
 
 
-
 .marginner-horizontal-10 {
     margin-right: 10px;
     margin-left: 10px;
@@ -166,8 +165,8 @@ table {
     overflow: hidden;
 }
 
-.hide-overflow-links > td {
-    max-width: 60px;
+.hide-overflow-links > td ,th{
+   
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

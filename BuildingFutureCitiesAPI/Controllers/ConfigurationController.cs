@@ -107,7 +107,7 @@ namespace BuildingFutureCitiesAPI.Controllers
                 return Redirect("https://localhost:44355/Success/Success");
             } else
             {
-                return Redirect("");
+                return Redirect("https://localhost:44355/Failure/Failure");
             }
         }
     }

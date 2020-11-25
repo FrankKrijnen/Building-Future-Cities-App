@@ -56,6 +56,13 @@ namespace BuildingFutureCitiesApp.Controllers
                     List<int> configMaterialIds = JsonConvert.DeserializeObject<List<int>>(responseString);
                     ViewBag.configMaterialIds = configMaterialIds;
                 }
+                else
+                {
+                    Redirect("https://localhost:44355/Failure/Failure");
+
+                }
+
+
             }
         }
 
@@ -152,6 +159,10 @@ namespace BuildingFutureCitiesApp.Controllers
                     BathroomRowList.Add(SeparationMaterialList.OrderByDescending(x => x.EmbodiedCO2).ToList());
 
                     ViewBag.BathroomRowList = BathroomRowList;
+                }
+                else
+                {
+                    Redirect("https://localhost:44355/Failure/Failure");
                 }
             }
         }

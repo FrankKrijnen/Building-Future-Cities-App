@@ -100,10 +100,9 @@
 <form style="float: right;">
     @foreach (Material material in ViewBag.SelectedMaterials)
     {
-        <input type="hidden" name="material_id" value="@material.Id" />
+        <input type="hidden" name="material_ids" value="@material.Id" />
     }
-
-    <input name="description" placeholder="Omschrijving" required="" />
+    <input type="hidden" name="configuration_id" value="@ViewBag.configurationId" />
 
     <button class="btn btn-primary float-right" type="submit" formaction="http://localhost:5000/api/configuration/UpdateConfiguration" formmethod="post">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-file-earmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -89,11 +89,26 @@ namespace BuildingFutureCitiesAPI.Controllers
         }
 
         [HttpPost("UpdateConfiguration")]
-        public bool UpdateConfiguration(Configuration configuration)
+        public ActionResult UpdateConfiguration([FromForm] List<int> material_ids, [FromForm] int configuration_id)
         {
             Constructor();
+            string deleteQry = "DELETE FROM `configuration_material` WHERE configuration_id = " + configuration_id + "";
+            string updateQry = "INSERT INTO `configuration_material`(`material_id`, `configuration_id`) VALUES";
+            foreach(int item in material_ids)
+            {
+                updateQry += "(" + item + "," + configuration_id + "),";          
+            }
+            string newUpdateQry = updateQry.Remove(updateQry.Length - 1);
+            bool deleteSuccess = configurationDataModel.DeleteConfiguration(deleteQry);
+            bool updateSuccess = configurationDataModel.UpdateConfiguration(newUpdateQry);
 
-            return true;
+            if(deleteSuccess && updateSuccess)
+            {
+                return Redirect("https://localhost:44355/Success/Success");
+            } else
+            {
+                return Redirect("");
+            }
         }
     }
 }

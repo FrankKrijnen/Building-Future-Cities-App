@@ -134,6 +134,52 @@ namespace BuildingFutureCitiesAPI.DataModels
             }
             return _ids;
         }
+
+        public bool DeleteConfiguration(string qry)
+        {
+            try
+            {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(qry))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            GetDatabaseConnection().Connection.Close();
+            return true;
+        }
+
+        public bool UpdateConfiguration(string qry)
+        {
+            try
+            {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(qry))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            GetDatabaseConnection().Connection.Close();
+            return true;
+        }
     }
 }
 

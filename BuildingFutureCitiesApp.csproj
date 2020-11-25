@@ -137,10 +137,12 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
     <Compile Include="Controllers\SelectedMaterialUpdateController.cs" />
+    <Compile Include="Controllers\SuccessController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
+    <Compile Include="Models\ConfigurationUpdate.cs" />
     <Compile Include="Models\LoginValidation.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Profile.cs" />
@@ -299,6 +301,7 @@
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Login\LoginForm.cshtml" />
     <Content Include="Views\SelectedMaterialUpdate\update.cshtml" />
+    <Content Include="Views\Success\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />

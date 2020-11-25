@@ -22,6 +22,7 @@ namespace BuildingFutureCitiesApp.Controllers
             if (!string.IsNullOrEmpty(myCookie.Values["configurationId"]))
             {
                 int configurationId = Convert.ToInt32(myCookie.Values["configurationId"]);
+                ViewBag.configurationId = configurationId;
             }
             return View();
         }

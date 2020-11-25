@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CsvHelper;
 using BuildingFutureCitiesApp.Models;
 using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
@@ -17,12 +20,12 @@ namespace BuildingFutureCitiesApp.Controllers
 
     public class ImportMaterialController : Controller
     {
-        private List<EstateArea> EstateAreas;
-        private List<EstateObject> EstateObjects;
-        private List<Distance> Distances;
-        private List<Function> Functions;
-        private List<Origin> Origins;
-        private List<Removability> Removabilities;
+        private List<string> EstateAreas;
+        private List<string> EstateObjects;
+        private List<string> Distances;
+        private List<string> Functions;
+        private List<string> Origins;
+        private List<string> Removabilities;
 
         // GET: ImportMaterial
         [HttpPost]
@@ -77,7 +80,26 @@ namespace BuildingFutureCitiesApp.Controllers
 
 
                 ViewBag.AllRows = CSVImportDataList;
+
+                List<List<string>> allRows = new List<List<string>>();
+                allRows.Add(EstateObjects);
+                allRows.Add(EstateAreas);
+                allRows.Add(Distances);
+                allRows.Add(Functions);
+                allRows.Add(Origins);
+                allRows.Add(Removabilities);
+                string json = JsonConvert.SerializeObject(allRows);
+                HttpContent estateAreaContent = new StringContent(json);
+
+                using (HttpClient client = new HttpClient())
+                {
+
+                    var response = client.PostAsync("http://localhost:5000/API/ImportMaterial/CSV", estateAreaContent).Result.Content.ReadAsStringAsync().Result;
+
+                }
             }
+            
+            
 
 
             ViewBag.EstateAreas = EstateAreas;
@@ -92,29 +114,29 @@ namespace BuildingFutureCitiesApp.Controllers
 
         public void FilterDataIntoLists(List<CSVImportData> csvImportDataList)
         {
-            EstateAreas = new List<EstateArea>();
-            EstateObjects = new List<EstateObject>();
-            Distances = new List<Distance>();
-            Functions = new List<Function>();
-            Origins = new List<Origin>();
-            Removabilities = new List<Removability>();
+            EstateAreas = new List<string>();
+            EstateObjects = new List<string>();
+            Distances = new List<string>();
+            Functions = new List<string>();
+            Origins = new List<string>();
+            Removabilities = new List<string>();
 
             foreach (CSVImportData csvImportData in csvImportDataList)
             {
-                EstateAreas.Add(new EstateArea(csvImportData.ObjectLiveAreaRoom));
-                EstateObjects.Add(new EstateObject(csvImportData.ObjectLiveAreaLocation));
-                Distances.Add(new Distance(csvImportData.MaterialDistance));
-                Functions.Add(new Function(csvImportData.ObjectLiveAreaFunction));
-                Origins.Add(new Origin(csvImportData.MaterialOrigins));
-                Removabilities.Add(new Removability(csvImportData.Removability));
+                EstateAreas.Add(csvImportData.ObjectLiveAreaRoom);
+                EstateObjects.Add(csvImportData.ObjectLiveAreaLocation);
+                Distances.Add(csvImportData.MaterialDistance);
+                Functions.Add(csvImportData.ObjectLiveAreaFunction);
+                Origins.Add(csvImportData.MaterialOrigins);
+                Removabilities.Add(csvImportData.Removability.ToString());
             }
 
-            EstateAreas = EstateAreas.DistinctBy(x => x.Description).ToList();
-            EstateObjects = EstateObjects.DistinctBy(x => x.Description).ToList();
-            Distances = Distances.DistinctBy(x => x.Description).ToList();
-            Functions = Functions.DistinctBy(x => x.Description).ToList();
-            Origins = Origins.DistinctBy(x => x.Description).ToList();
-            Removabilities = Removabilities.DistinctBy(x => x.Description).ToList();
+            EstateAreas = EstateAreas.DistinctBy(x => x).ToList();
+            EstateObjects = EstateObjects.DistinctBy(x => x).ToList();
+            Distances = Distances.DistinctBy(x => x).ToList();
+            Functions = Functions.DistinctBy(x => x).ToList();
+            Origins = Origins.DistinctBy(x => x).ToList();
+            Removabilities = Removabilities.DistinctBy(x => x).ToList();
         }
 
 

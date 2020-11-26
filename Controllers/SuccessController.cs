@@ -11,7 +11,11 @@ namespace BuildingFutureCitiesApp.Controllers
         // GET: Success
         public ActionResult Success()
         {
-            return View();
+            HttpCookie myCookie = new HttpCookie("StatusMessage");
+            myCookie.Value = "Success";
+            myCookie.Expires = DateTime.Now.AddSeconds(7);
+            Response.Cookies.Add(myCookie);
+            return Redirect("https://localhost:44355/Navigation/Index");
         }
     }
 }

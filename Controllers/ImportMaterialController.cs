@@ -54,8 +54,8 @@ namespace BuildingFutureCitiesApp.Controllers
                                     csv.GetField("Levensduur"),
                                     csv.GetField("Woningobject"),
                                     csv.GetField<float>("Losmaakbaarheid"),
-                                    csv.GetField("Oorsprong"),
                                     csv.GetField("Herkomst_1"),
+                                    csv.GetField("Oorsprong"),
                                     csv.GetField("Aantal"),
                                     csv.GetField("Eenheid"),
                                     csv.GetField("Embodied energy"),
@@ -81,29 +81,36 @@ namespace BuildingFutureCitiesApp.Controllers
 
                 ViewBag.AllRows = CSVImportDataList;
 
-                List<List<string>> allRows = new List<List<string>>();
-                allRows.Add(EstateObjects);
-                allRows.Add(EstateAreas);
-                allRows.Add(Distances);
-                allRows.Add(Functions);
-                allRows.Add(Origins);
-                allRows.Add(Removabilities);
-                string json = JsonConvert.SerializeObject(allRows);
-                HttpContent estateAreaContent = new StringContent(json);
+
+                List<List<string>> allRowsLinkTables = new List<List<string>>();
+                allRowsLinkTables.Add(EstateObjects);
+                allRowsLinkTables.Add(EstateAreas);
+                allRowsLinkTables.Add(Distances);
+                allRowsLinkTables.Add(Functions);
+                allRowsLinkTables.Add(Origins);
+                allRowsLinkTables.Add(Removabilities);
+
+                //json met koppeltabellen only
+                string json = JsonConvert.SerializeObject(allRowsLinkTables);
+
+                //json met alle data
+                string json2 = JsonConvert.SerializeObject(CSVImportDataList);
+
+                HttpContent CSVImportContent = new StringContent(json+"|%delimiter%|"+json2);
 
                 using (HttpClient client = new HttpClient())
                 {
 
-                    var response = client.PostAsync("http://localhost:5000/API/ImportMaterial/CSV", estateAreaContent).Result.Content.ReadAsStringAsync().Result;
+                    var response = client.PostAsync("http://localhost:5000/API/ImportMaterial/CSV", CSVImportContent).Result.Content.ReadAsStringAsync().Result;
 
                 }
             }
-            
-            
 
 
-            ViewBag.EstateAreas = EstateAreas;
+
+
             ViewBag.EstateObjects = EstateObjects;
+            ViewBag.EstateAreas = EstateAreas;
             ViewBag.Distances = Distances;
             ViewBag.Functions = Functions;
             ViewBag.Origins = Origins;

@@ -1,0 +1,111 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ImportMaterial</title>
+</head>
+<body>
+    <div class="jumbotron text-center alert-secondary">
+        <h2>Importeer <span class="font-weight-bold">CSV</span> bevestiging.</h2> 
+    </div>
+<div class="row">
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Woningobject(en)
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in ViewBag.EstateObjects)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        </ul>
+    </div>
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Woningbouwdeel(en) (grof)
+        </div>
+        @foreach (var item in ViewBag.EstateAreas)
+        {
+            <li class="list-group-item">@item</li>
+        }
+    </div>
+
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Woningbouwdeel(en) (functie)
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in ViewBag.Functions)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        </ul>
+    </div>
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Herkomst(en)
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in ViewBag.Distances)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        </ul>
+    </div>
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Oorsprong(en)
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in ViewBag.Origins)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        </ul>
+    </div>
+
+
+    <div class="card col-lg-3 col-md-4 col-sm-12 mb-5 p-0">
+        <div class="card-header">
+            Losmaakbaarheid(en)
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in ViewBag.Removabilities)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        </ul>
+    </div>
+
+
+
+    <table class="row table hide-overflow-links">
+        <tr>
+
+            <th>MaterialName</th>
+            <th>EmbodiedEnergy</th>
+            <th>EmbodiedCO2</th>
+
+        </tr>
+        @foreach (var row in ViewBag.AllRows)
+        {
+            <tr class="hide-overflow-links">
+                <td>@row.MaterialName</td>
+                <td>@row.EmbodiedEnergy</td>
+                <td>@row.EmbodiedCO2</td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+</body>
+</html>

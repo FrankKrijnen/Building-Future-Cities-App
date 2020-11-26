@@ -2,29 +2,31 @@
 <div class="jumbotron text-center alert-secondary">
     <h2>Configuratie overzicht</h2>
 </div>
+<form>
+    <br />
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
 
-<br />
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
+        @foreach (var config in ViewBag.ConfigurationList)
+        {
+            <div class="padder-10">
+                <div class="card">
+                    <div class="card-body">
+                        <img style="width: 100%" src="https://picsum.photos/300/100" />
+                        <br />
+                        <br />
+                        <!--<a onclick="location.href = 'https://localhost:44355/bathroom/index?data=' + '1';" class="card-title">@config.RoomName</a>-->
+                        @Html.ActionLink("https://localhost:44355", "Index", "Bathroom", new { configId = config.configuration_id }, null);
+                        <h6 class="card-title">@config.ConfigName</h6>
 
-    @foreach(var config in ViewBag.ConfigurationList)
-    {
-        <div class="padder-10">
-            <div class="card">
-                <div class="card-body">
-                    <img style="width: 100%" src="https://picsum.photos/300/100"/>
-                    <br/>
-                    <br/>
-                    <h4 class="card-title">@config.RoomName</h4>
-                    <h6 class="card-title">@config.ConfigName</h6>
-
+                    </div>
                 </div>
             </div>
-        </div>
-    
-    }
-</div>
-<button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/';">
-    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
-    </svg>Terug
-</button>
+
+        }
+    </div>
+    <button class="btn btn-danger" onclick="location.href = 'https://localhost:44355/';">
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
+        </svg>Terug
+    </button>
+</form>

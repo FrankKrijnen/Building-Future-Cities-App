@@ -102,7 +102,5 @@ namespace BuildingFutureCitiesApp.Controllers
 
             return View();
         }
-
-        
     }
 }

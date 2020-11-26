@@ -28,12 +28,12 @@ namespace BuildingFutureCitiesAPI.Controllers
         public void SetConfiguration([FromForm] int[] material_id, [FromForm] string description)
         {
             Constructor();
-           
+
             //1 keer uitvoeren voor setup
             string qry =
-                "INSERT INTO `configuration` (`id`, `description`, `room`) VALUES (NULL, '"+ @description +"', 'Badkamer');";
+                "INSERT INTO `configuration` (`id`, `description`, `room`) VALUES (NULL, '" + @description + "', 'Badkamer');";
             configurationDataModel.SetConfiguration(qry);
-            
+
             //krijg id terug van net gemaakte configuratie
             string qry2 = "SELECT id FROM `configuration` WHERE description = '" + @description + "' AND room = 'Badkamer'";
             int configurationId = configurationDataModel.GetConfigurationId(qry2);
@@ -49,7 +49,7 @@ namespace BuildingFutureCitiesAPI.Controllers
                     partOfQry3 += "(NULL, '" + @configurationId + "', '" + materialId + "')";
                     break;
                 }
-                partOfQry3 += "(NULL, '"+ @configurationId + "', '"+ materialId + "'),";
+                partOfQry3 += "(NULL, '" + @configurationId + "', '" + materialId + "'),";
                 materialIdIndex--;
             }
             //opslaan per profiel
@@ -65,17 +65,50 @@ namespace BuildingFutureCitiesAPI.Controllers
 
         // GET api/<ConfigurationController>
         [HttpGet("GetConfiguration/{profileId}")]
-        public List<ConfigurationClass> GetConfigurationForProfile(int profileId)
+        public List<Configuration> GetConfigurationForProfile(int profileId)
         {
             Constructor();
             string qry =
-                "SELECT * FROM configuration JOIN configuration_profile ON configuration_profile.configuration_id = configuration.id WHERE profile_id = "+ profileId + " ";
-            List<ConfigurationClass> profileConfigurations = new List<ConfigurationClass>();
+                "SELECT * FROM configuration JOIN configuration_profile ON configuration_profile.configuration_id = configuration.id WHERE profile_id = " + profileId + " ";
+            List<Configuration> profileConfigurations = new List<Configuration>();
             profileConfigurations = configurationDataModel.GetProfileConfiguration(qry);
 
             return profileConfigurations;
-
         }
 
+        [HttpGet("GetMaterials")]
+        public List<int> GetConfiguration(int configurationId)
+        {
+            Constructor();
+            string qryGetMaterialsInConfigurationAmount = "SELECT * FROM `configuration_material` where configuration_id = " + configurationId + "";
+            Configuration configuration = new Configuration();
+
+            List<int> _ids = configurationDataModel.GetmaterialIds(qryGetMaterialsInConfigurationAmount);
+
+            return _ids;
+        }
+
+        [HttpPost("UpdateConfiguration")]
+        public ActionResult UpdateConfiguration([FromForm] List<int> material_ids, [FromForm] int configuration_id)
+        {
+            Constructor();
+            string deleteQry = "DELETE FROM `configuration_material` WHERE configuration_id = " + configuration_id + "";
+            string updateQry = "INSERT INTO `configuration_material`(`material_id`, `configuration_id`) VALUES";
+            foreach(int item in material_ids)
+            {
+                updateQry += "(" + item + "," + configuration_id + "),";          
+            }
+            string newUpdateQry = updateQry.Remove(updateQry.Length - 1);
+            bool deleteSuccess = configurationDataModel.DeleteConfiguration(deleteQry);
+            bool updateSuccess = configurationDataModel.UpdateConfiguration(newUpdateQry);
+
+            if(deleteSuccess && updateSuccess)
+            {
+                return Redirect("https://localhost:44355/Success/Success");
+            } else
+            {
+                return Redirect("https://localhost:44355/Failure/Failure");
+            }
+        }
     }
 }

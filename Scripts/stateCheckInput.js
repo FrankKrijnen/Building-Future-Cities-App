@@ -1,4 +1,5 @@
 ﻿
+
 function stateCheckInput() {
    
     var textinputs = document.querySelectorAll('input[type=radio]');

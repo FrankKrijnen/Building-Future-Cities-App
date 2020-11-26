@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=16.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>packages\CsvHelper.16.1.0\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
@@ -65,8 +71,14 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -134,6 +146,7 @@
     <Compile Include="Controllers\BathroomController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\FailureController.cs" />
+    <Compile Include="Controllers\ImportMaterialController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
@@ -145,6 +158,14 @@
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
     <Compile Include="Models\ConfigurationUpdate.cs" />
+    <Compile Include="Models\CSVImportModels\CSVImportData.cs" />
+    <Compile Include="Models\CSVImportModels\Distance.cs" />
+    <Compile Include="Models\CSVImportModels\EstateArea.cs" />
+    <Compile Include="Models\CSVImportModels\EstateObject.cs" />
+    <Compile Include="Models\CSVImportModels\Function.cs" />
+    <Compile Include="Models\CSVImportModels\LinkTable.cs" />
+    <Compile Include="Models\CSVImportModels\Origin.cs" />
+    <Compile Include="Models\CSVImportModels\Removability.cs" />
     <Compile Include="Models\LoginValidation.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Profile.cs" />
@@ -303,13 +324,12 @@
     <Content Include="Views\SelectedMaterial\Index.cshtml" />
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Login\LoginForm.cshtml" />
+    <Content Include="Views\ImportMaterial\CSV.cshtml" />
     <Content Include="Views\SelectedMaterialUpdate\update.cshtml" />
     <Content Include="Views\Success\Success.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\" />
-    <Folder Include="App_Data\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Mat\" />
   </ItemGroup>

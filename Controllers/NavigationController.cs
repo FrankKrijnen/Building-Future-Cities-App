@@ -1,4 +1,5 @@
-﻿using BuildingFutureCitiesApp.Models;
+﻿using BuildingFutureCitiesApp.Extensions;
+using BuildingFutureCitiesApp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,23 @@ using System.Web.UI.WebControls;
 
 namespace BuildingFutureCitiesApp.Controllers
 {
-    public class NavigationController: LoginController
+    public class NavigationController : LoginController
     {
-        
-        
         public ActionResult Index()
         {
             if (IsLoggedIn())
             {
+                HttpCookieCollection cookieCollection = Request.Cookies;
+                if (cookieCollection.Get("StatusMessage") != null)
+                {
+                    if (Request.Cookies["StatusMessage"].Value == "Success")
+                    {
+                        this.AddNotification("Aanpassing is gemaakt", NotificationType.SUCCESS);
+                    } else if(Request.Cookies["StatusMessage"].Value == "Failure")
+                    {
+                        this.AddNotification("Er is iets fout gegaan probeer het later opnieuw.", NotificationType.ERROR);
+                    }
+                }
                 return View();
             }
             return Redirect("https://localhost:44355/Login/Login");

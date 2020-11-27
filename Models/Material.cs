@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace BuildingFutureCitiesApp.Models
 {
@@ -29,7 +30,19 @@ namespace BuildingFutureCitiesApp.Models
         {
 
         }
-        public Material(int id ,string materialName, string objectLiveAreaFunction, string objectLiveAreaRoom,string image,string objectLifeSpan,string objectLiveAreaLocation, float removability, string materialOrigins, string materialDistance, string unit_KG_M2_Amount, string embodiedEnergy, float embodiedCO2)
+        [JsonConstructor]
+        public Material(int id ,
+            string materialName,
+            string embodiedEnergy,
+            float embodiedCO2,
+            string image, string objectLifeSpan,
+            string unit_KG_M2_Amount,
+            string objectLiveAreaRoom,
+            string objectLiveAreaLocation,
+            string objectLiveAreaFunction,
+            string materialDistance,
+            string materialOrigins,
+            float removability)
         {
             Id = id;
             MaterialName = materialName;

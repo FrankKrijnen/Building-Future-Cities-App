@@ -145,14 +145,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BathroomController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\FailureController.cs" />
     <Compile Include="Controllers\ImportMaterialController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SelectedMaterialController.cs" />
+    <Compile Include="Controllers\SelectedMaterialUpdateController.cs" />
+    <Compile Include="Controllers\SuccessController.cs" />
+    <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationClass.cs" />
+    <Compile Include="Models\ConfigurationUpdate.cs" />
     <Compile Include="Models\CSVImportModels\CSVImportData.cs" />
     <Compile Include="Models\CSVImportModels\Distance.cs" />
     <Compile Include="Models\CSVImportModels\EstateArea.cs" />
@@ -201,6 +206,7 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Views\Failure\Failure.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -319,6 +325,9 @@
     <Content Include="Views\SelectedMaterial\Create.cshtml" />
     <Content Include="Views\Login\LoginForm.cshtml" />
     <Content Include="Views\ImportMaterial\CSV.cshtml" />
+    <Content Include="Views\SelectedMaterialUpdate\update.cshtml" />
+    <Content Include="Views\Success\Success.cshtml" />
+    <Content Include="Views\Shared\_Notifications.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

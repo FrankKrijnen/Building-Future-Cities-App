@@ -16,8 +16,57 @@ namespace BuildingFutureCitiesApp.Controllers
     public class BathroomController : LoginController
     {
         List<Material> BathroomMaterialList;
+
         // GET: Bathroom
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int configId)
+        {
+            HttpCookie configurationCookie = new HttpCookie("configuration_id");
+            configurationCookie.Values.Add("configurationId", configId.ToString());
+            configurationCookie.Expires = DateTime.Now.AddHours(12);
+            Response.Cookies.Add(configurationCookie);
+
+            ViewBag.configId = configId;
+            BuildTable();
+
+            if (configId > 0)
+            {
+                SelectItemsFromConfig(configId);
+            }
+
+            if (IsLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Navigation");
+            }
+        }
+
+        private void SelectItemsFromConfig(int configId)
+        {
+            using(var client = new HttpClient())
+            {
+                var response = client.GetAsync("http://localhost:5000/api/configuration/GetMaterials?configurationId=" + configId + "").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = response.Content;
+                    string responseString = responseContent.ReadAsStringAsync().Result;
+                    List<int> configMaterialIds = JsonConvert.DeserializeObject<List<int>>(responseString);
+                    ViewBag.configMaterialIds = configMaterialIds;
+                }
+                else
+                {
+                    Redirect("https://localhost:44355/Failure/Failure");
+
+                }
+
+
+            }
+        }
+
+        private void BuildTable()
         {
             ViewBag.Message = "Badkamer";
             ViewBag.Title = "Stel hier uw " + ViewBag.Message + " samen";
@@ -47,7 +96,7 @@ namespace BuildingFutureCitiesApp.Controllers
 
                     //Bathroom list with all sorted material rows 
                     List<List<Material>> BathroomRowList = new List<List<Material>>();
-                    
+
                     foreach (var material in BathroomMaterialList)
                     {
                         if (material.ObjectLiveAreaFunction == "Verlichting")
@@ -84,7 +133,7 @@ namespace BuildingFutureCitiesApp.Controllers
                         }
                         if (material.ObjectLiveAreaFunction == "Afscheiding")
                         {
-                             SeparationMaterialList.Add(material);
+                            SeparationMaterialList.Add(material);
                         }
                     }
 
@@ -111,15 +160,10 @@ namespace BuildingFutureCitiesApp.Controllers
 
                     ViewBag.BathroomRowList = BathroomRowList;
                 }
-            }
-
-            if (IsLoggedIn())
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index", "Navigation");
+                else
+                {
+                    Redirect("https://localhost:44355/Failure/Failure");
+                }
             }
         }
 
@@ -127,7 +171,7 @@ namespace BuildingFutureCitiesApp.Controllers
         {
             // In the Real World, we would actually do something...
             // For this example, we're just going to (asynchronously) wait 100ms.
-            
+
         }
     }
 }

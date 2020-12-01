@@ -1,8 +1,9 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="language" content="nl">
     <title>@ViewBag.Title - BuildingFutureCities</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -31,7 +32,7 @@
                         @Html.ActionLink("Keuken", "Kitchen", "Navigation", new object { }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item nav-link">
-                        @Html.ActionLink("Badkamer", "Index", "Bathroom", new object { }, new { @class = "nav-link" })
+                        @Html.ActionLink("Badkamer", "Index", "Bathroom", new { configId = 0 }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item nav-link">
                         @Html.ActionLink("Slaapkamer", "Bedroom", "Navigation", new object { }, new { @class = "nav-link" })
@@ -74,6 +75,7 @@
 </nav>
 
 <div class="container body-content">
+    @Html.Partial("_Notifications")
     @RenderBody()
     <br />
     <br />

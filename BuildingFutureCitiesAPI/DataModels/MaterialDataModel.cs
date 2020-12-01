@@ -46,6 +46,7 @@ namespace BuildingFutureCitiesAPI.DataModels
                         GetDatabaseConnection().Connection.Open();
                     }
 
+
                     using (MySqlDataReader reader = qry.ExecuteReader())
                     {
 

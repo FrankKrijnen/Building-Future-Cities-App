@@ -66,9 +66,9 @@ namespace BuildingFutureCitiesAPI.DataModels
         }
 
 
-        public List<ConfigurationClass> GetProfileConfiguration(string qry)
+        public List<Configuration> GetProfileConfiguration(string qry)
         {
-            List<ConfigurationClass> configurationList = new List<ConfigurationClass>();
+            List<Configuration> configurationList = new List<Configuration>();
 
             using (MySqlCommand preparedQry = GetDatabaseConnection().PrepareSql(qry))
             {
@@ -85,11 +85,12 @@ namespace BuildingFutureCitiesAPI.DataModels
 
                         while (reader.Read())
                         {
-                            configurationList.Add(new ConfigurationClass(
-                                reader["room"].ToString()
-                                ,reader["description"].ToString()
-                                ,null
-                                ));
+                            configurationList.Add(new Configuration(
+                                (int)reader["configuration_id"]
+                                , reader["room"].ToString()
+                                , reader["description"].ToString()
+                                , null
+                                )) ;
                         }
                     }
                     GetDatabaseConnection().Connection.Close();
@@ -102,6 +103,82 @@ namespace BuildingFutureCitiesAPI.DataModels
             }
 
             return configurationList;
+        }
+
+        public List<int> GetmaterialIds(string qry)
+        {
+            List<int> _ids = new List<int>();
+            using (MySqlCommand preparedQry = GetDatabaseConnection().PrepareSql(qry))
+            {
+                try
+                {
+                    if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                    {
+                        GetDatabaseConnection().Connection.Open();
+                    }
+                    using (MySqlDataReader reader = preparedQry.ExecuteReader())
+                    {
+                        Console.WriteLine(reader);
+                        while (reader.Read())
+                        {
+                            _ids.Add((int)reader["material_id"]);
+                        }
+                    }
+                    GetDatabaseConnection().Connection.Close();
+                }
+                catch (Exception e)
+                {
+                    SetErrorMsg(e.Message.ToString());
+                }
+
+            }
+            return _ids;
+        }
+
+        public bool DeleteConfiguration(string qry)
+        {
+            try
+            {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(qry))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            GetDatabaseConnection().Connection.Close();
+            return true;
+        }
+
+        public bool UpdateConfiguration(string qry)
+        {
+            try
+            {
+                if (GetDatabaseConnection().Connection.State == ConnectionState.Closed)
+                {
+                    GetDatabaseConnection().Connection.Open();
+                }
+                using (MySqlCommand command = GetDatabaseConnection().PrepareSql(qry))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            GetDatabaseConnection().Connection.Close();
+            return true;
         }
     }
 }

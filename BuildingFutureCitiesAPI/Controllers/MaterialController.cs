@@ -63,9 +63,7 @@ namespace BuildingFutureCitiesAPI.Controllers
                 Constructor();
                 materialDataModel.SetMaterialItem(qry);
 
-                Response.Redirect("https://localhost:44355/");
-
-                 
+                Response.Redirect("https://localhost:44355/");   
         }
 
         // PUT api/<MaterialController>/5
